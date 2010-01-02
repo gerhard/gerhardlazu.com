@@ -2,3 +2,4 @@ title:       "Gerhard Lazu"
 lsi:         true
 pygments:    true
 permalink:   pretty
+exclude:     ['Capfile', 'config']
