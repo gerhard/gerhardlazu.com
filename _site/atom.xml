@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Gerhard Lazu web feed</title>
+ <link href="http://gerhardlazu.com/atom.xml" rel="self"/>
+ <link href="http://gerhardlazu.com/"/>
+ <updated>2010-01-02T18:21:41+00:00</updated>
+ <id>http://gerhardlazu.com/</id>
+ <author>
+   <name>Gerhard Lazu</name>
+   <email>gerhard@lazu.co.uk</email>
+ </author>
+ 
+ 
+ <entry>
+   <title>glz_custom_fields v1.2.4 released</title>
+   <link href="http://gerhardlazu.com/2010/01/02/glz_custom_fields-v1.2.4-released/"/>
+   <updated>2010-01-02T00:00:00+00:00</updated>
+   <id>http://gerhardlazu.com/2010/01/02/glz_custom_fields-v1.2.4-released</id>
+   <content type="html">&lt;h1&gt;glz_custom_fields v1.2.4 released&lt;/h1&gt;
+&lt;p class=&quot;meta&quot;&gt;Textpattern custom fields plugin gets better&lt;/p&gt;
+&lt;p&gt;I wanted to release this new version around Christmas time, but I&amp;#8217;ve put some extra care and attention into it, it&amp;#8217;s the best release ever.&lt;/p&gt;
+&lt;p&gt;A lot of you have been asking for scripts to populate the values which appear under custom fields in the Write tab, this release makes that possible.&lt;/p&gt;</content>
+ </entry>
+ 
+ 
+</feed>
