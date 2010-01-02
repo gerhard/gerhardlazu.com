@@ -1,0 +1,12 @@
+---
+layout: post
+title: glz_custom_fields v1.2.4 released
+---
+
+h1. {{ page.title }}
+
+p(meta). Textpattern custom fields plugin gets better
+
+I wanted to release this new version around Christmas time, but I've put some extra care and attention into it, it's the best release ever.
+
+A lot of you have been asking for scripts to populate the values which appear under custom fields in the Write tab, this release makes that possible.
