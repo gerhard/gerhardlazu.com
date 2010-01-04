@@ -1,0 +1,41 @@
+/* Clearing floats without extra markup
+   Based on How To Clear Floats Without Structural Markup by PiE
+   [http://www.positioniseverything.net/easyclearing.html] */
+.clearfix {
+  display: block;
+}
+* html .clearfix {
+  height: 1%;
+}
+.clearfix:after {
+  clear: both;
+  content: " ";
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+/* Regular clearing
+   apply to column that should drop below previous ones. */
+.clear {
+  clear: both;
+}
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
+#post h2 {
+  color: #aaa;
+}
+#post p.heading {
+  margin-top: 0;
+}
+
+#post img {
+
+}

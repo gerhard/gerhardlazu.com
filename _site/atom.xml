@@ -4,7 +4,7 @@
  <title>Gerhard Lazu web feed</title>
  <link href="http://gerhardlazu.com/atom.xml" rel="self"/>
  <link href="http://gerhardlazu.com/"/>
- <updated>2010-01-02T19:48:49+00:00</updated>
+ <updated>2010-01-04T07:46:21+00:00</updated>
  <id>http://gerhardlazu.com/</id>
  <author>
    <name>Gerhard Lazu</name>
@@ -18,9 +18,15 @@
    <updated>2010-01-02T00:00:00+00:00</updated>
    <id>http://gerhardlazu.com/2010/01/02/glz_custom_fields-v1.2.4-released</id>
    <content type="html">&lt;h1&gt;glz_custom_fields v1.2.4 released&lt;/h1&gt;
-&lt;p class=&quot;meta&quot;&gt;Textpattern custom fields plugin gets better&lt;/p&gt;
-&lt;p&gt;I wanted to release this new version around Christmas time, but I&amp;#8217;ve put some extra care and attention into it, it&amp;#8217;s the best release ever.&lt;/p&gt;
-&lt;p&gt;A lot of you have been asking for scripts to populate the values which appear under custom fields in the Write tab, this release makes that possible.&lt;/p&gt;</content>
+&lt;p&gt;I wanted to release this new version around Christmas time, but I&amp;#8217;ve put some extra care and attention into it, it&amp;#8217;s the best release ever. Besides some bugs which have been fixed and some general improvements, there are two big additions to this version:&lt;/p&gt;
+&lt;h2&gt;Custom field values from script&lt;/h2&gt;
+&lt;p class=&quot;heading&quot;&gt;A lot of you have been asking for scripts to populate the values which appear under custom fields in the Write tab, this release makes that possible.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/glz_custom_fields-v1.2.4/custom_script.png&quot; alt=&quot;glz_custom_fields v1.2.4 Custom Scripts&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/glz_custom_fields-v1.2.4/time_picker.png&quot; alt=&quot;glz_custom_fields v1.2.4 Time Picker&quot; class=&quot;right&quot; /&gt;&lt;/p&gt;
+&lt;h2&gt;Time Picker&lt;/h2&gt;
+&lt;p class=&quot;heading&quot;&gt;The Date Picker field got a new friend, the Time Picker.&lt;/p&gt;
+&lt;p&gt;To see what exacly has been done, check the &lt;a href=&quot;http://github.com/gerhard/glz_custom_fields_public/issues/closed&quot;&gt;glz_custom_fields v1.2.4 issues on github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;What you can expect in &lt;a href=&quot;http://github.com/gerhard/glz_custom_fields_public/issues/labels/v1.2.5&quot;&gt;glz_custom_fields v1.2.5&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
  
