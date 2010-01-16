@@ -35,6 +35,13 @@
 #post p.heading {
   margin-top: 0;
 }
+#post p.list {
+  margin-bottom: 0;
+}
+#post ul,
+#post ol {
+  margin-bottom: 1em;
+}
 
 #post img {
 

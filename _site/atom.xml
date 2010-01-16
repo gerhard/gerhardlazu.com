@@ -4,13 +4,31 @@
  <title>Gerhard Lazu web feed</title>
  <link href="http://gerhardlazu.com/atom.xml" rel="self"/>
  <link href="http://gerhardlazu.com/"/>
- <updated>2010-01-05T10:41:07+00:00</updated>
+ <updated>2010-01-16T08:55:42+00:00</updated>
  <id>http://gerhardlazu.com/</id>
  <author>
    <name>Gerhard Lazu</name>
    <email>gerhard@lazu.co.uk</email>
  </author>
  
+ 
+ <entry>
+   <title>40psi makes all the difference</title>
+   <link href="http://gerhardlazu.com/2010/01/16/40-psi-makes-all-the-difference/"/>
+   <updated>2010-01-16T00:00:00+00:00</updated>
+   <id>http://gerhardlazu.com/2010/01/16/40-psi-makes-all-the-difference</id>
+   <content type="html">&lt;h1&gt;40psi makes all the difference&lt;/h1&gt;
+&lt;p&gt;Best way to commute in London is by bike, period. Be it &lt;a href=&quot;http://twitpic.com/galkt&quot;&gt;summer&lt;/a&gt; or &lt;a href=&quot;http://twitpic.com/wxh0i&quot;&gt;winter&lt;/a&gt;, there&amp;#8217;s no faster way to get from A to B. What I&amp;#8217;ve been struggling this winter though were punctures. Even though I got a set of brand new tyres, some slick &lt;a href=&quot;http://www.roadcyclinguk.com/gear-news/continental-gp4000s-clincher-tested/2358.html&quot;&gt;GP4000 S Contis&lt;/a&gt;, I got 3 punctures in a week. That made them the most unreliable tyre I&amp;#8217;ve ever had! I just couldn&amp;#8217;t believe how poor they performed when everyone on Wiggle was raving how good they were and how many thousands of miles they did without even a single puncture.&lt;/p&gt;
+&lt;h2&gt;Not enough psi&lt;/h2&gt;
+&lt;p&gt;I&amp;#8217;ve been running those tyres at 60psi, so any pebble or bigger pothole taken straight on would go straight to the inner tube. Without at least 100psi in those sort of tyres, you are looking for trouble! Since putting in 40psi more, handling has improved massively and no more punctures in the last week : ).&lt;/p&gt;
+&lt;p class=&quot;list&quot;&gt;So, if you&amp;#8217;ll start getting punctures willy nilly there are 2 things to consider:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;check and double-check your tyre pressure&lt;/li&gt;
+	&lt;li&gt;your tyres might be in the last 10% of their life span, it&amp;#8217;s time to get new ones&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Pro tip (by Evans Cycles)&lt;/h2&gt;
+&lt;p&gt;Apparently, cars fitted with Michelin tyres leave very fine strands of wire, so if one of those gets through, your inner tubes will start losing air mysteriously. Run a cloth through the inner of the tyre and make sure it&amp;#8217;s perfectly clean.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>glz_custom_fields v1.2.4 released</title>

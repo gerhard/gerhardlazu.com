@@ -1,0 +1,21 @@
+---
+layout: post
+title: 40psi makes all the difference
+---
+
+h1. {{ page.title }}
+
+Best way to commute in London is by bike, period. Be it "summer":http://twitpic.com/galkt or "winter":http://twitpic.com/wxh0i, there's no faster way to get from A to B. What I've been struggling this winter though were punctures. Even though I got a set of brand new tyres, some slick "GP4000 S Contis":http://www.roadcyclinguk.com/gear-news/continental-gp4000s-clincher-tested/2358.html, I got 3 punctures in a week. That made them the most unreliable tyre I've ever had! I just couldn't believe how poor they performed when everyone on Wiggle was raving how good they were and how many thousands of miles they did without even a single puncture.
+
+h2. Not enough psi
+
+I've been running those tyres at 60psi, so any pebble or bigger pothole taken straight on would go straight to the inner tube. Without at least 100psi in those sort of tyres, you are looking for trouble! Since putting in 40psi more, handling has improved massively and no more punctures in the last week : ).
+
+p(list). So, if you'll start getting punctures willy nilly there are 2 things to consider:
+
+* check and double-check your tyre pressure
+* your tyres might be in the last 10% of their life span, it's time to get new ones
+
+h2. Pro tip (by Evans Cycles)
+
+Apparently, cars fitted with Michelin tyres leave very fine strands of wire, so if one of those gets through, your inner tubes will start losing air mysteriously. Run a cloth through the inner of the tyre and make sure it's perfectly clean.
