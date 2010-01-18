@@ -32,7 +32,7 @@
 #post h2 {
   color: #aaa;
 }
-#post p.heading {
+#post h2+p {
   margin-top: 0;
 }
 #post p.list {
@@ -43,6 +43,12 @@
   margin-bottom: 1em;
 }
 
-#post img {
-
+#post img.right {
+  margin: 0 0 10px 10px;
+}
+.shadow {
+  box-shadow: 2px 2px 10px #555555;
+  -moz-box-shadow: 2px 2px 10px #555555;
+  -webkit-box-shadow: 2px 2px 10px #555555;
+  -o-box-shadow: 2px 2px 10px #555555;
 }

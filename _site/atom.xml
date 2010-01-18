@@ -4,7 +4,7 @@
  <title>Gerhard Lazu web feed</title>
  <link href="http://gerhardlazu.com/atom.xml" rel="self"/>
  <link href="http://gerhardlazu.com/"/>
- <updated>2010-01-16T08:55:42+00:00</updated>
+ <updated>2010-01-18T06:20:14+00:00</updated>
  <id>http://gerhardlazu.com/</id>
  <author>
    <name>Gerhard Lazu</name>
@@ -13,10 +13,40 @@
  
  
  <entry>
-   <title>40psi makes all the difference</title>
-   <link href="http://gerhardlazu.com/2010/01/16/40-psi-makes-all-the-difference/"/>
+   <title>Ubuntu Karmic Koala 9.10 NFS mounts in OS X Snow Leopard</title>
+   <link href="http://gerhardlazu.com/2010/01/16/ubuntu-karmic-koala-9.10-nfs-mounts-in-os-x-snow-leopard/"/>
    <updated>2010-01-16T00:00:00+00:00</updated>
-   <id>http://gerhardlazu.com/2010/01/16/40-psi-makes-all-the-difference</id>
+   <id>http://gerhardlazu.com/2010/01/16/ubuntu-karmic-koala-9.10-nfs-mounts-in-os-x-snow-leopard</id>
+   <content type="html">&lt;h1&gt;Ubuntu Karmic Koala 9.10 &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; mounts in OS X Snow Leopard&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;http://img.skitch.com/20100117-1gjckjt3pjid75csji9gniewgg.jpg&quot; class=&quot;right shadow&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;This is by far the easiest and quickest way to set up Ubuntu as a &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; server. We have 2 Mac laptops and a PC with a few terabytes of storage, the ideal candidate for &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;I installed the required packages for &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; on the Ubuntu box and configured the shares:&lt;/p&gt;
+&lt;div&gt;
+&lt;pre&gt;
+&lt;code class='shell'&gt;karmic ➜ ~ sudo apt-get install nfs-common nfs-kernel-server
+&lt;p&gt;karmic ➜ ~ sudo vi /etc/exports&lt;/code&gt;&lt;br /&gt;
+  &lt;/pre&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;This is how my &lt;code&gt;/etc/exports&lt;/code&gt; looks like:&lt;/p&gt;
+&lt;script src=&quot;http://gist.github.com/279299.js?file=gistfile2.sh&quot;&gt;&lt;/script&gt;&lt;p&gt;Those 2 folders are shared with all computers on the &lt;span class=&quot;caps&quot;&gt;LAN&lt;/span&gt;. Notice the &lt;code&gt;insecure&lt;/code&gt; option. Without it, OS X won&amp;#8217;t be able to mount the &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; shares.&lt;/p&gt;
+&lt;p&gt;Now just export those changes and restart the &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; daemon:&lt;/p&gt;
+&lt;script src=&quot;http://gist.github.com/279299.js?file=gistfile3.sh&quot;&gt;&lt;/script&gt;&lt;p&gt;On the Mac, open up Disk Utility and add a new &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; mount, &lt;a href=&quot;http://skitch.com/gerhardlazu/nx5yy/disk-utility&quot;&gt;similar to this&lt;/a&gt;. Notice the Advanced Mount Parameters, mainly &lt;code&gt;rsize=32768 wsize=65536&lt;/code&gt;. Without them, you will have pretty poor I/O performances. Without them I was maxing out at 3.5MB/s, now I&amp;#8217;m averaging 11.5MB/s. Writes are slower, starting at 11.5MB/s, but then dropping and staying at 6.5MB/s. I think it&amp;#8217;s due to OS X constantly trying to index the &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; share. I still haven&amp;#8217;t found a workaround for it (using async is not an option), but let me know if you do.&lt;/p&gt;
+&lt;h2&gt;Pro tip &amp;#8211; &lt;span class=&quot;caps&quot;&gt;MAKE&lt;/span&gt; &lt;span class=&quot;caps&quot;&gt;SURE&lt;/span&gt; &lt;span class=&quot;caps&quot;&gt;YOU&lt;/span&gt; &lt;span class=&quot;caps&quot;&gt;KNOW&lt;/span&gt; &lt;span class=&quot;caps&quot;&gt;WHAT&lt;/span&gt; YOU&amp;#8217;RE &lt;span class=&quot;caps&quot;&gt;DOING&lt;/span&gt;!&lt;/h2&gt;
+&lt;p&gt;If you can&amp;#8217;t write data to the &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; it&amp;#8217;s because your Mac&amp;#8217;s &lt;span class=&quot;caps&quot;&gt;UID&lt;/span&gt; doesn&amp;#8217;t match your Linux one. My initial &lt;span class=&quot;caps&quot;&gt;UID&lt;/span&gt; on the Mac was &lt;code&gt;501&lt;/code&gt;, while on Linux it&amp;#8217;s &lt;code&gt;1000&lt;/code&gt;, so I did the following:&lt;/p&gt;
+&lt;script src=&quot;http://gist.github.com/279299.js?file=gistfile4.sh&quot;&gt;&lt;/script&gt;&lt;p&gt;Again, make sure you know what you&amp;#8217;re doing because the above can mess your system pretty bad. Running the &lt;code&gt;find&lt;/code&gt; command can take a considerable amount of time based on how much data you have. I had a few hundred GBs which took about 20 minutes to modify.&lt;/p&gt;
+&lt;h2&gt;Reference&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://nfs.sourceforge.net/nfs-howto/index.html&quot;&gt;Linux &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; &amp;#8211; &lt;span class=&quot;caps&quot;&gt;HOWTO&lt;/span&gt;&lt;/a&gt; (brilliant &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; reference guide)&lt;br /&gt;
+&lt;a href=&quot;http://ubuntuforums.org/showthread.php?t=181358&quot;&gt;Connecting OS X to Ubuntu &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; Share&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://blogs.sun.com/jag/entry/nfs_on_snow_leopard&quot;&gt;&lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; on Snow Leopard&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://osxdaily.com/2009/02/19/mac-os-x-change-your-user-id/&quot;&gt;OS X Change your User ID&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://www.cyberciti.biz/faq/linux-unix-tuning-nfs-server-client-performance/&quot;&gt;Tune &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; Performance&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>40psi makes all the difference</title>
+   <link href="http://gerhardlazu.com/2010/01/15/40-psi-makes-all-the-difference/"/>
+   <updated>2010-01-15T00:00:00+00:00</updated>
+   <id>http://gerhardlazu.com/2010/01/15/40-psi-makes-all-the-difference</id>
    <content type="html">&lt;h1&gt;40psi makes all the difference&lt;/h1&gt;
 &lt;p&gt;Best way to commute in London is by bike, period. Be it &lt;a href=&quot;http://twitpic.com/galkt&quot;&gt;summer&lt;/a&gt; or &lt;a href=&quot;http://twitpic.com/wxh0i&quot;&gt;winter&lt;/a&gt;, there&amp;#8217;s no faster way to get from A to B. What I&amp;#8217;ve been struggling this winter though were punctures. Even though I got a set of brand new tyres, some slick &lt;a href=&quot;http://www.roadcyclinguk.com/gear-news/continental-gp4000s-clincher-tested/2358.html&quot;&gt;GP4000 S Contis&lt;/a&gt;, I got 3 punctures in a week. That made them the most unreliable tyre I&amp;#8217;ve ever had! I just couldn&amp;#8217;t believe how poor they performed when everyone on Wiggle was raving how good they were and how many thousands of miles they did without even a single puncture.&lt;/p&gt;
 &lt;h2&gt;Not enough psi&lt;/h2&gt;
@@ -38,11 +68,11 @@
    <content type="html">&lt;h1&gt;glz_custom_fields v1.2.4 released&lt;/h1&gt;
 &lt;p&gt;I wanted to release this new version around Christmas time, but I&amp;#8217;ve put some extra care and attention into it, it&amp;#8217;s the best release ever. Besides some bugs which have been fixed and some general improvements, there are two big additions to this version:&lt;/p&gt;
 &lt;h2&gt;Custom field values from script&lt;/h2&gt;
-&lt;p class=&quot;heading&quot;&gt;A lot of you have been asking for scripts to populate the values which appear under custom fields in the Write tab, this release makes that possible.&lt;/p&gt;
+&lt;p&gt;A lot of you have been asking for scripts to populate the values which appear under custom fields in the Write tab, this release makes that possible.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/glz_custom_fields-v1.2.4/custom_script.png&quot; alt=&quot;glz_custom_fields v1.2.4 Custom Scripts&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/glz_custom_fields-v1.2.4/time_picker.png&quot; alt=&quot;glz_custom_fields v1.2.4 Time Picker&quot; class=&quot;right&quot; /&gt;&lt;/p&gt;
 &lt;h2&gt;Time Picker&lt;/h2&gt;
-&lt;p class=&quot;heading&quot;&gt;The Date Picker field got a new friend, the Time Picker.&lt;/p&gt;
+&lt;p&gt;The Date Picker field got a new friend, the Time Picker.&lt;/p&gt;
 &lt;p&gt;To see what exacly has been done, check the &lt;a href=&quot;http://github.com/gerhard/glz_custom_fields_public/issues/closed&quot;&gt;glz_custom_fields v1.2.4 issues on github&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;What you can expect in &lt;a href=&quot;http://github.com/gerhard/glz_custom_fields_public/issues/labels/v1.2.5&quot;&gt;glz_custom_fields v1.2.5&lt;/a&gt;&lt;/p&gt;</content>
  </entry>

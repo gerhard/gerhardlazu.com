@@ -9,7 +9,7 @@ I wanted to release this new version around Christmas time, but I've put some ex
 
 h2. Custom field values from script
 
-p(heading). A lot of you have been asking for scripts to populate the values which appear under custom fields in the Write tab, this release makes that possible.
+p. A lot of you have been asking for scripts to populate the values which appear under custom fields in the Write tab, this release makes that possible.
 
 <img src="/images/glz_custom_fields-v1.2.4/custom_script.png" alt="glz_custom_fields v1.2.4 Custom Scripts" />
 
@@ -17,7 +17,7 @@ p(heading). A lot of you have been asking for scripts to populate the values whi
 
 h2. Time Picker
 
-p(heading). The Date Picker field got a new friend, the Time Picker.
+p. The Date Picker field got a new friend, the Time Picker.
 
 To see what exacly has been done, check the "glz_custom_fields v1.2.4 issues on github":http://github.com/gerhard/glz_custom_fields_public/issues/closed
 

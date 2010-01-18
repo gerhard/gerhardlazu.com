@@ -1,0 +1,46 @@
+---
+layout: post
+title: Ubuntu Karmic Koala 9.10 NFS mounts in OS X Snow Leopard
+---
+
+h1. {{ page.title }}
+
+<img src="http://img.skitch.com/20100117-1gjckjt3pjid75csji9gniewgg.jpg" class="right shadow" />
+
+This is by far the easiest and quickest way to set up Ubuntu as a NFS server. We have 2 Mac laptops and a PC with a few terabytes of storage, the ideal candidate for NFS.
+
+I installed the required packages for NFS on the Ubuntu box and configured the shares:
+
+{% highlight shell %}
+karmic ➜ ~ sudo apt-get install nfs-common nfs-kernel-server
+karmic ➜ ~ sudo vi /etc/exports
+{% endhighlight %}
+
+This is how my @/etc/exports@ looks like:
+
+<script src="http://gist.github.com/279299.js?file=gistfile2.sh"></script>
+
+Those 2 folders are shared with all computers on the LAN. Notice the @insecure@ option. Without it, OS X won't be able to mount the NFS shares.
+
+Now just export those changes and restart the NFS daemon:
+
+<script src="http://gist.github.com/279299.js?file=gistfile3.sh"></script>
+
+On the Mac, open up Disk Utility and add a new NFS mount, "similar to this":http://skitch.com/gerhardlazu/nx5yy/disk-utility. Notice the Advanced Mount Parameters, mainly @rsize=32768 wsize=65536@. Without them, you will have pretty poor I/O performances. Without them I was maxing out at 3.5MB/s, now I'm averaging 11.5MB/s. Writes are slower, starting at 11.5MB/s, but then dropping and staying at 6.5MB/s. I think it's due to OS X constantly trying to index the NFS share. I still haven't found a workaround for it (using async is not an option), but let me know if you do.
+
+h2. Pro tip - MAKE SURE YOU KNOW WHAT YOU'RE DOING!
+
+If you can't write data to the NFS it's because your Mac's UID doesn't match your Linux one. My initial UID on the Mac was @501@, while on Linux it's @1000@, so I did the following:
+
+<script src="http://gist.github.com/279299.js?file=gistfile4.sh"></script>
+
+Again, make sure you know what you're doing because the above can mess your system pretty bad. Running the @find@ command can take a considerable amount of time based on how much data you have. I had a few hundred GBs which took about 20 minutes to modify.
+
+h2. Reference
+
+"Linux NFS - HOWTO":http://nfs.sourceforge.net/nfs-howto/index.html (brilliant NFS reference guide)
+"Connecting OS X to Ubuntu NFS Share":http://ubuntuforums.org/showthread.php?t=181358
+"NFS on Snow Leopard":http://blogs.sun.com/jag/entry/nfs_on_snow_leopard
+"OS X Change your User ID":http://osxdaily.com/2009/02/19/mac-os-x-change-your-user-id/
+"Tune NFS Performance":http://www.cyberciti.biz/faq/linux-unix-tuning-nfs-server-client-performance/
+
