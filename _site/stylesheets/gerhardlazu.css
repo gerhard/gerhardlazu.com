@@ -28,9 +28,16 @@
 .right {
   float: right;
 }
+.align-right {
+  text-align: right;
+}
+.align-center {
+  text-align: center;
+}
 
 #post h2 {
   color: #aaa;
+  margin-top: 1em;
 }
 #post h2+p {
   margin-top: 0;
@@ -41,6 +48,14 @@
 #post ul,
 #post ol {
   margin-bottom: 1em;
+}
+
+#post pre {
+  padding-top: 0.2em; padding-bottom: 0.5em;
+  overflow: auto;
+}
+#post code {
+  padding: 0;
 }
 
 #post img.right {

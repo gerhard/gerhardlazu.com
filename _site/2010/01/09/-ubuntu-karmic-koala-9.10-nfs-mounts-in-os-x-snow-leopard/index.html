@@ -22,19 +22,44 @@
 <p><img src="http://img.skitch.com/20100117-1gjckjt3pjid75csji9gniewgg.jpg" class="right shadow" /></p>
 <p>This is by far the easiest and quickest way to set up Ubuntu as a <span class="caps">NFS</span> server. We have 2 Mac laptops and a PC with a few terabytes of storage, the ideal candidate for <span class="caps">NFS</span>.</p>
 <p>I installed the required packages for <span class="caps">NFS</span> on the Ubuntu box and configured the shares:</p>
-<div>
-<pre>
-<code class='shell'>karmic ➜ ~ sudo apt-get install nfs-common nfs-kernel-server
-<p>karmic ➜ ~ sudo vi /etc/exports</code><br />
-  </pre></p>
-</div>
-<p>This is how my <code>/etc/exports</code> looks like:</p>
-<script src="http://gist.github.com/279299.js?file=gistfile2.sh"></script><p>Those 2 folders are shared with all computers on the <span class="caps">LAN</span>. Notice the <code>insecure</code> option. Without it, OS X won&#8217;t be able to mount the <span class="caps">NFS</span> shares.</p>
+<div class="highlight"><pre><code class="bash">karmic ➜ ~ sudo apt-get install nfs-common nfs-kernel-server
+karmic ➜ ~ sudo vi /etc/exports
+</code></pre>
+</div><p>This is how my <code>/etc/exports</code> looks like:</p>
+<div class="highlight"><pre><code class="bash"><span class="c"># /etc/exports: the access control list for filesystems which may be exported$</span>
+<span class="c">#   to NFS clients.  See exports(5).$</span>
+<span class="c">#$</span>
+<span class="c"># Example for NFSv2 and NFSv3:$</span>
+<span class="c"># /srv/homes       hostname1(rw,sync,no_subtree_check) hostname2(ro,sync,no_subtree_check)$</span>
+/home/gerhard/Movies      192.168.1.1/255.255.255.0<span class="o">(</span>rw,sync,insecure,no_subtree_check<span class="o">)</span><span class="err">$</span>
+/home/gerhard/Episodes    192.168.1.1/255.255.255.0<span class="o">(</span>rw,sync,insecure,no_subtree_check<span class="o">)</span><span class="err">$</span>
+<span class="c">#$</span>
+<span class="c"># Example for NFSv4:$</span>
+<span class="c"># /srv/nfs4        gss/krb5i(rw,sync,fsid=0,crossmnt,no_subtree_check)$</span>
+<span class="c"># /srv/nfs4/homes  gss/krb5i(rw,sync,no_subtree_check)$</span>
+<span class="c">#$</span>
+</code></pre>
+</div><p>Those 2 folders are shared with all computers on the <span class="caps">LAN</span>. Notice the <code>insecure</code> option. Without it, OS X won&#8217;t be able to mount the <span class="caps">NFS</span> shares.</p>
 <p>Now just export those changes and restart the <span class="caps">NFS</span> daemon:</p>
-<script src="http://gist.github.com/279299.js?file=gistfile3.sh"></script><p>On the Mac, open up Disk Utility and add a new <span class="caps">NFS</span> mount, <a href="http://skitch.com/gerhardlazu/nx5yy/disk-utility">similar to this</a>. Notice the Advanced Mount Parameters, mainly <code>rsize=32768 wsize=65536</code>. Without them, you will have pretty poor I/O performances. Without them I was maxing out at 3.5MB/s, now I&#8217;m averaging 11.5MB/s. Writes are slower, starting at 11.5MB/s, but then dropping and staying at 6.5MB/s. I think it&#8217;s due to OS X constantly trying to index the <span class="caps">NFS</span> share. I still haven&#8217;t found a workaround for it (using async is not an option), but let me know if you do.</p>
-<h2>Pro tip &#8211; <span class="caps">MAKE</span> <span class="caps">SURE</span> <span class="caps">YOU</span> <span class="caps">KNOW</span> <span class="caps">WHAT</span> YOU&#8217;RE <span class="caps">DOING</span>!</h2>
+<div class="highlight"><pre><code class="bash">karmic ➜  ~ sudo exportfs -ra
+karmic ➜  ~ sudo /etc/init.d/nfs-kernel-server restart
+</code></pre>
+</div><p>Now that <span class="caps">NFS</span> is all set up on the Ubuntu box, let&#8217;s connect to it from one of the Macs. In Finder, go to Go &gt; Connect to Server, and enter the path to your <span class="caps">NFS</span>. This is how mine looks like:</p>
+<p class="align-center"><img src="http://img.skitch.com/20100121-rq91jk3buwh77uabxqpan3kan1.jpg" /></p>
+<p>If you want icons on your desktop as you saw at the beginning of this post, run this in Terminal:</p>
+<div class="highlight"><pre><code class="bash">snowy ➜ ~ <span class="nb">cd </span>Desktop
+snowy ➜ Desktop ln -s /net/192.168.1.2/home/gerhard/Movies
+snowy ➜ Desktop ln -s /net/192.168.1.2/home/gerhard/Episodes
+</code></pre>
+</div><h2>Pro tip &#8211; <span class="caps">MAKE</span> <span class="caps">SURE</span> <span class="caps">YOU</span> <span class="caps">KNOW</span> <span class="caps">WHAT</span> YOU&#8217;RE <span class="caps">DOING</span>!</h2>
 <p>If you can&#8217;t write data to the <span class="caps">NFS</span> it&#8217;s because your Mac&#8217;s <span class="caps">UID</span> doesn&#8217;t match your Linux one. My initial <span class="caps">UID</span> on the Mac was <code>501</code>, while on Linux it&#8217;s <code>1000</code>, so I did the following:</p>
-<script src="http://gist.github.com/279299.js?file=gistfile4.sh"></script><p>Again, make sure you know what you&#8217;re doing because the above can mess your system pretty bad. Running the <code>find</code> command can take a considerable amount of time based on how much data you have. I had a few hundred GBs which took about 20 minutes to modify.</p>
+<div class="highlight"><pre><code class="bash">snowy ➜ ~ sudo -i
+root  ➜ ~ dscl . -change /Users/gerhardlazu UniqueID 501 1000
+root  ➜ ~ find / <span class="se">\!</span> <span class="se">\(</span> -fstype hfs -or -fstype ufs <span class="se">\)</span> -prune -or -user 501 -exec chown -h 1000 <span class="o">{}</span> <span class="se">\;</span> -print
+root  ➜ ~ id
+<span class="nv">uid</span><span class="o">=</span>1000<span class="o">(</span>gerhardlazu<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span>20<span class="o">(</span>staff<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span>20<span class="o">(</span>staff<span class="o">)</span>...
+</code></pre>
+</div><p>Again, make sure you know what you&#8217;re doing because the above can mess your system pretty bad. Running the <code>find</code> command can take a considerable amount of time based on how much data you have. I had a few hundred GBs which took about 20 minutes to modify.</p>
 <h2>Reference</h2>
 <p><a href="http://nfs.sourceforge.net/nfs-howto/index.html">Linux <span class="caps">NFS</span> &#8211; <span class="caps">HOWTO</span></a> (brilliant <span class="caps">NFS</span> reference guide)<br />
 <a href="http://ubuntuforums.org/showthread.php?t=181358">Connecting OS X to Ubuntu <span class="caps">NFS</span> Share</a><br />
@@ -47,11 +72,9 @@
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>16 Jan 2010</span> &raquo; <a href="/2010/01/16/ubuntu-karmic-koala-9.10-nfs-mounts-in-os-x-snow-leopard/">Ubuntu Karmic Koala 9.10 NFS mounts in OS X Snow Leopard</a></li>
+      <li><span>15 Jan 2010</span> &raquo; <a href="/2010/01/15/40-psi-makes-all-the-difference/">40psi makes all the difference</a></li>
     
       <li><span>02 Jan 2010</span> &raquo; <a href="/2010/01/02/glz_custom_fields-v1.2.4-released/">glz_custom_fields v1.2.4 released</a></li>
-    
-      <li><span>15 Jan 2010</span> &raquo; <a href="/2010/01/15/40-psi-makes-all-the-difference/">40psi makes all the difference</a></li>
     
   </ul>
 </div>

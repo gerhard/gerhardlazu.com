@@ -11,28 +11,60 @@ This is by far the easiest and quickest way to set up Ubuntu as a NFS server. We
 
 I installed the required packages for NFS on the Ubuntu box and configured the shares:
 
-{% highlight shell %}
+{% highlight bash %}
 karmic ➜ ~ sudo apt-get install nfs-common nfs-kernel-server
 karmic ➜ ~ sudo vi /etc/exports
 {% endhighlight %}
 
 This is how my @/etc/exports@ looks like:
 
-<script src="http://gist.github.com/279299.js?file=gistfile2.sh"></script>
+{% highlight bash %}
+# /etc/exports: the access control list for filesystems which may be exported$
+#   to NFS clients.  See exports(5).$
+#$
+# Example for NFSv2 and NFSv3:$
+# /srv/homes       hostname1(rw,sync,no_subtree_check) hostname2(ro,sync,no_subtree_check)$
+/home/gerhard/Movies      192.168.1.1/255.255.255.0(rw,sync,insecure,no_subtree_check)$
+/home/gerhard/Episodes    192.168.1.1/255.255.255.0(rw,sync,insecure,no_subtree_check)$
+#$
+# Example for NFSv4:$
+# /srv/nfs4        gss/krb5i(rw,sync,fsid=0,crossmnt,no_subtree_check)$
+# /srv/nfs4/homes  gss/krb5i(rw,sync,no_subtree_check)$
+#$
+{% endhighlight %}
 
 Those 2 folders are shared with all computers on the LAN. Notice the @insecure@ option. Without it, OS X won't be able to mount the NFS shares.
 
 Now just export those changes and restart the NFS daemon:
 
-<script src="http://gist.github.com/279299.js?file=gistfile3.sh"></script>
+{% highlight bash %}
+karmic ➜  ~ sudo exportfs -ra
+karmic ➜  ~ sudo /etc/init.d/nfs-kernel-server restart
+{% endhighlight %}
 
-On the Mac, open up Disk Utility and add a new NFS mount, "similar to this":http://skitch.com/gerhardlazu/nx5yy/disk-utility. Notice the Advanced Mount Parameters, mainly @rsize=32768 wsize=65536@. Without them, you will have pretty poor I/O performances. Without them I was maxing out at 3.5MB/s, now I'm averaging 11.5MB/s. Writes are slower, starting at 11.5MB/s, but then dropping and staying at 6.5MB/s. I think it's due to OS X constantly trying to index the NFS share. I still haven't found a workaround for it (using async is not an option), but let me know if you do.
+Now that NFS is all set up on the Ubuntu box, let's connect to it from one of the Macs. In Finder, go to Go > Connect to Server, and enter the path to your NFS. This is how mine looks like:
+
+<p class="align-center"><img src="http://img.skitch.com/20100121-rq91jk3buwh77uabxqpan3kan1.jpg" /></p>
+
+If you want icons on your desktop as you saw at the beginning of this post, run this in Terminal:
+
+{% highlight bash %}
+snowy ➜ ~ cd Desktop
+snowy ➜ Desktop ln -s /net/192.168.1.2/home/gerhard/Movies
+snowy ➜ Desktop ln -s /net/192.168.1.2/home/gerhard/Episodes
+{% endhighlight %}
 
 h2. Pro tip - MAKE SURE YOU KNOW WHAT YOU'RE DOING!
 
 If you can't write data to the NFS it's because your Mac's UID doesn't match your Linux one. My initial UID on the Mac was @501@, while on Linux it's @1000@, so I did the following:
 
-<script src="http://gist.github.com/279299.js?file=gistfile4.sh"></script>
+{% highlight bash %}
+snowy ➜ ~ sudo -i
+root  ➜ ~ dscl . -change /Users/gerhardlazu UniqueID 501 1000
+root  ➜ ~ find / \! \( -fstype hfs -or -fstype ufs \) -prune -or -user 501 -exec chown -h 1000 {} \; -print
+root  ➜ ~ id
+uid=1000(gerhardlazu) gid=20(staff) groups=20(staff)...
+{% endhighlight %}
 
 Again, make sure you know what you're doing because the above can mess your system pretty bad. Running the @find@ command can take a considerable amount of time based on how much data you have. I had a few hundred GBs which took about 20 minutes to modify.
 
