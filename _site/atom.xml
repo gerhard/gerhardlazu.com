@@ -4,13 +4,48 @@
  <title>Gerhard Lazu web feed</title>
  <link href="http://gerhardlazu.com/atom.xml" rel="self"/>
  <link href="http://gerhardlazu.com/"/>
- <updated>2010-01-21T06:35:45+00:00</updated>
+ <updated>2010-02-02T07:42:59+00:00</updated>
  <id>http://gerhardlazu.com/</id>
  <author>
    <name>Gerhard Lazu</name>
    <email>gerhard@lazu.co.uk</email>
  </author>
  
+ 
+ <entry>
+   <title>vsftpd users on Centos 5</title>
+   <link href="http://gerhardlazu.com/2010/02/02/vsftpd-users-centos5/"/>
+   <updated>2010-02-02T00:00:00+00:00</updated>
+   <id>http://gerhardlazu.com/2010/02/02/vsftpd-users-centos5</id>
+   <content type="html">&lt;h1&gt;vsftpd users on Centos 5&lt;/h1&gt;
+&lt;p&gt;If you&amp;#8217;re like me and do your server administration from the terminal (GUIs are for kids), then you must have come across the &lt;span class=&quot;caps&quot;&gt;FTP&lt;/span&gt; issue. You have clients which design and develop websites for other people. These people require &lt;span class=&quot;caps&quot;&gt;FTP&lt;/span&gt; access to their websites to upload the odd PDFs or DOCs. Some are just static websites so they don&amp;#8217;t have a fancy CMSes with upload functionalities.&lt;/p&gt;
+&lt;p&gt;For example, I store all my stuff on the server in &lt;strong&gt;/home/gerhard&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;gerhard@konnichiwa ~&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;tree -d -L 1
+.
+|-- archive.gerhardlazu.com
+|-- carmina.lazu.co.uk
+|-- gerhardlazu.com
+|-- lazu.co.uk
+&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;-- lazu.ro -&amp;gt; lazu.co.uk
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;So what happens if I want to allow Carmina &lt;span class=&quot;caps&quot;&gt;FTP&lt;/span&gt; access to &lt;strong&gt;carmina.lazu.co.uk&lt;/strong&gt; without her seeing the other folders?&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;gerhard@konnichiwa ~&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo adduser -d /home/gerhard/carmina.lazu.co.uk carmina -s /sbin/nologin
+Password:
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;gerhard@konnichiwa ~&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo passwd carmina
+Changing password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;user carmina.
+New UNIX password: 
+Retype new UNIX password: 
+passwd: all authentication tokens updated successfully.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Just to be sure, let&amp;#8217;s try and access the server via &lt;span class=&quot;caps&quot;&gt;SSH&lt;/span&gt; with this account. After all, we just created a new system user:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;snowy ➜  ~  ssh carmina@konnichiwa
+carmina@xxx.xxx.xxx.xxx password:
+This account is currently not available.
+Connection to xxx.xxx.xxx.xxx closed.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;And that&amp;#8217;s it. No virtual users, no messing about with pam.d. It takes a few seconds and it&amp;#8217;s as secure as your system setup.&lt;/p&gt;
+&lt;p&gt;This article assumes you already have &lt;a href=&quot;http://vsftpd.beasts.org/&quot;&gt;vsftpd&lt;/a&gt; installed on the system.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>40psi makes all the difference</title>
