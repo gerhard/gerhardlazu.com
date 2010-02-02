@@ -7,7 +7,7 @@ h1. {{ page.title }}
 
 If you're like me and do your server administration from the terminal (GUIs are for kids), then you must have come across the FTP issue. You have clients which design and develop websites for other people. These people require FTP access to their websites to upload the odd PDFs or DOCs. Some are just static websites so they don't have a fancy CMSes with upload functionalities.
 
-For example, I store all my stuff on the server in */home/gerhard*:
+For example, I store all my stuff on the server in @/home/gerhard@:
 
 {% highlight bash %}
 [gerhard@konnichiwa ~]$ tree -d -L 1
@@ -19,7 +19,7 @@ For example, I store all my stuff on the server in */home/gerhard*:
 `-- lazu.ro -> lazu.co.uk
 {% endhighlight %}
 
-So what happens if I want to allow Carmina FTP access to *carmina.lazu.co.uk* without her seeing the other folders?
+So what happens if I want to allow Carmina FTP access to @carmina.lazu.co.uk@ without her seeing the other folders?
 
 {% highlight bash %}
 [gerhard@konnichiwa ~]$ sudo adduser -d /home/gerhard/carmina.lazu.co.uk carmina -s /sbin/nologin
@@ -40,6 +40,6 @@ This account is currently not available.
 Connection to xxx.xxx.xxx.xxx closed.
 {% endhighlight %}
 
-And that's it. No virtual users, no messing about with pam.d. It takes a few seconds and it's as secure as your system setup.
+And that's it. No virtual users, no messing about with @pam.d@. It takes a few seconds and it's as secure as your system setup.
 
 This article assumes you already have "vsftpd":http://vsftpd.beasts.org/ installed on the system.

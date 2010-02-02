@@ -20,7 +20,7 @@
   <div id="post">
 <h1>vsftpd users on Centos 5</h1>
 <p>If you&#8217;re like me and do your server administration from the terminal (GUIs are for kids), then you must have come across the <span class="caps">FTP</span> issue. You have clients which design and develop websites for other people. These people require <span class="caps">FTP</span> access to their websites to upload the odd PDFs or DOCs. Some are just static websites so they don&#8217;t have a fancy CMSes with upload functionalities.</p>
-<p>For example, I store all my stuff on the server in <strong>/home/gerhard</strong>:</p>
+<p>For example, I store all my stuff on the server in <code>/home/gerhard</code>:</p>
 <div class="highlight"><pre><code class="bash"><span class="o">[</span>gerhard@konnichiwa ~<span class="o">]</span><span class="nv">$ </span>tree -d -L 1
 .
 |-- archive.gerhardlazu.com
@@ -29,7 +29,7 @@
 |-- lazu.co.uk
 <span class="sb">`</span>-- lazu.ro -&gt; lazu.co.uk
 </code></pre>
-</div><p>So what happens if I want to allow Carmina <span class="caps">FTP</span> access to <strong>carmina.lazu.co.uk</strong> without her seeing the other folders?</p>
+</div><p>So what happens if I want to allow Carmina <span class="caps">FTP</span> access to <code>carmina.lazu.co.uk</code> without her seeing the other folders?</p>
 <div class="highlight"><pre><code class="bash"><span class="o">[</span>gerhard@konnichiwa ~<span class="o">]</span><span class="nv">$ </span>sudo adduser -d /home/gerhard/carmina.lazu.co.uk carmina -s /sbin/nologin
 Password:
 <span class="o">[</span>gerhard@konnichiwa ~<span class="o">]</span><span class="nv">$ </span>sudo passwd carmina
@@ -44,7 +44,7 @@ carmina@xxx.xxx.xxx.xxx password:
 This account is currently not available.
 Connection to xxx.xxx.xxx.xxx closed.
 </code></pre>
-</div><p>And that&#8217;s it. No virtual users, no messing about with pam.d. It takes a few seconds and it&#8217;s as secure as your system setup.</p>
+</div><p>And that&#8217;s it. No virtual users, no messing about with <code>pam.d</code>. It takes a few seconds and it&#8217;s as secure as your system setup.</p>
 <p>This article assumes you already have <a href="http://vsftpd.beasts.org/">vsftpd</a> installed on the system.</p>
 </div>
 
@@ -54,9 +54,9 @@ Connection to xxx.xxx.xxx.xxx closed.
     
       <li><span>09 Jan 2010</span> &raquo; <a href="/2010/01/09/-ubuntu-karmic-koala-9.10-nfs-mounts-in-os-x-snow-leopard/">Ubuntu Karmic Koala 9.10 NFS mounts in OS X Snow Leopard</a></li>
     
-      <li><span>15 Jan 2010</span> &raquo; <a href="/2010/01/15/40-psi-makes-all-the-difference/">40psi makes all the difference</a></li>
-    
       <li><span>02 Jan 2010</span> &raquo; <a href="/2010/01/02/glz_custom_fields-v1.2.4-released/">glz_custom_fields v1.2.4 released</a></li>
+    
+      <li><span>15 Jan 2010</span> &raquo; <a href="/2010/01/15/40-psi-makes-all-the-difference/">40psi makes all the difference</a></li>
     
   </ul>
 </div>
