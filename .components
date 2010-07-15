@@ -1,0 +1,7 @@
+--- 
+:script: jquery
+:renderer: erb
+:orm: mongomapper
+:test: rspec
+:stylesheet: none
+:mock: none
