@@ -1,0 +1,96 @@
+@import "reset.css";
+@import "text.css";
+@import "960.css";
+@import "common.css";
+@import "buttons.css";
+
+header#page {
+  margin: 20px 0; padding: 0 10px;
+}
+
+#logo {
+  float: left;
+  position: relative;
+  width: 167px; height: 50px;
+  font-family: "museo-slab-2";
+}
+#logo .name {
+  font-size: 40px;
+  position: absolute; bottom: 0; left: 0;
+}
+#logo .surname {
+  -moz-transform:rotate(-90deg); -webkit-transform:rotate(-90deg); -o-transform:rotate(-90deg);
+  font-size: 15px; color: #999;
+  position: absolute; bottom: 19px; right: 0;
+}
+
+#search {
+  float: right;
+  height: 50px; line-height: 50px;
+}
+#search input[type=search] {
+  width: 160px; 
+}
+#search label {
+  display: none;
+}
+
+#main-content {
+  clear: both;
+}
+
+nav#article {
+  margin: 20px 0; padding: 0 10px;
+}
+nav#article ul {
+  background-color: rgb(245, 245, 245);
+  -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
+}
+nav#article li.previous {
+  float: left;
+}
+nav#article li.next {
+  float: right;
+}
+nav#article li.archive {
+  margin-left: 48%;
+}
+nav#article a {
+  display: block;
+  padding: 5px 10px;
+}
+nav#article .previous a {
+  -webkit-border-top-left-radius: 10px; -webkit-border-bottom-left-radius: 10px;
+  -moz-border-radius-topleft: 10px; -moz-border-radius-bottomleft: 10px;
+  border-top-left-radius: 10px; border-bottom-left-radius: 10px;
+}
+nav#article .next a {
+  -webkit-border-top-right-radius: 10px; -webkit-border-bottom-right-radius: 10px;
+  -moz-border-radius-topright: 10px; -moz-border-radius-bottomright: 10px;
+  border-top-right-radius: 10px; border-bottom-right-radius: 10px;
+}
+nav#article .archive a {
+  width: 43px;
+}
+nav#article a span {
+  font-weight: bold;
+}
+
+#main-content article {
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-gap: 20px;
+}
+
+#main-content aside {
+  
+}
+
+nav#social {
+
+}
+nav#social li {
+  float: right;
+  padding: 0 0 0 10px;
+}

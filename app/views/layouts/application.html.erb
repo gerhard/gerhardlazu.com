@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title><%= title %></title>
+  <!--[if IE]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="/stylesheets/gerhardlazu.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+  <div class="container_12">
+    <header id="page" class="clearfix">
+      <div id="logo">
+        <a href="/" class="name">Gerhard</a>
+        <a href="/" class="surname">Lazu</a>
+      </div>
+      
+      <form id="search" action="/search" method="post">
+        <label for="q">Looking for something?</label>
+        <input id="q" name="q" type="search" placeholder="Looking for something?" />
+        <input type="submit" value="Search" />
+      </form>
+    </header>
+    <div id="main-content" class="clearfix">
+      <article class="grid_8">
+        <header>
+          <h1>This is my first article</h1>
+          <p class="time">5 August 2010</p>
+        </header>
+        <p>Consequatur velit suscipit maiores et.Doloribus quisquam laboriosam voluptas modi saepe.Delectus vel sed similique ut debitis omnis.Qui dicta sed nisi.Assumenda saepe vero sequi quibusdam aspernatur at atque enim.Ut et ut beatae numquam quos maiores.Perspiciatis voluptatum culpa aliquid et atque voluptatem ducimus illo.Assumenda et fugiat amet nihil est sequi aut aut.Optio quia qui architecto deserunt non.Earum autem quia quasi culpa.</p>
+      </article>
+      <aside class="grid_4">
+        <h2>My Category</h2>
+        <ul>
+          <li><a href="/">Another article</a></li>
+          <li><a href="/">Yet another article</a>
+        </ul>
+      </aside>
+    </div>
+    <nav id="article" class="clearfix">
+      <ul>
+        <li class="previous"><a href="#"><span>&#171;</span> MongoDB to the rescue</a></li>
+        <li class="next"><a href="#">Chefize <span>&#187;</span></a></li>
+        <li class="archive"><a href="#">Archive</a></li>
+      </ul>
+    </nav>
+    <div class="clearfix">
+      <section id="disqus" class="grid_8">
+        <p>Disqus comments for <b>This is my first article</b> will come here</p>
+      </section>
+      <section id="about_me" class="grid_4">
+        <p>Short snippet about me</p>
+      </section>
+    </div>
+    
+    <footer class="clearfix">
+      <section id="copyright" class="grid_8">
+        &copy;2010 Gerhard Lazu. Built on <a href="http://facebok.com">Padrino</a>.
+      </section>
+      
+      <nav id="social" class="grid_4">
+        <ul class="clearfix">
+          <li class="twitter"><a href="http://twitter.com/gerhardlazu" class="button small"><span>Twitter</span></a></li>
+          <li class="github"><a href="http://github.com/gerhard" class="button small"><span>Github</span></a></li>
+          <li class="flickr"><a href="http://www.flickr.com/photos/gerhardlazu" class="button small red"><span>Flickr</span></a></li>
+        </ul>
+      </nav>
+    </footer>
+  </div>
+</body>
+</html>

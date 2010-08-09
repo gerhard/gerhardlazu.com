@@ -1,0 +1,29 @@
+header, footer, nav, article {
+  display:block;
+}
+a {
+  text-decoration: none;
+  color: rgb(150, 210, 120);
+}
+a:visited {
+  text-decoration: underline;
+}
+#logo a:visited,
+a.button:visited {
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  background-color: rgb(255, 255, 200);
+}
+#logo a:hover {
+  background-color: transparent;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0; padding: 0;
+}
+nav li {
+  margin: 0; padding: 0;
+}
