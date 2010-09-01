@@ -1,0 +1,17 @@
+#disqus_thread {
+  margin-bottom: 0;
+}
+
+#disqus #dsq-content #dsq-global-toolbar {
+  margin: 0;
+}
+#disqus #dsq-content #dsq-toolbar-dropdown-wrap h4 {
+  font-size: 12px;
+}
+#disqus #dsq-content #dsq-new-post h3 {
+  display: none;
+}
+
+#disqus #dsq-content #dsq-comments-title h3 {
+  font-size: 13px;
+}

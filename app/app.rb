@@ -1,4 +1,5 @@
 class Gerhardlazu < Padrino::Application
+  register DisqusInitializer
   register Padrino::Mailer
   register Padrino::Helpers
 

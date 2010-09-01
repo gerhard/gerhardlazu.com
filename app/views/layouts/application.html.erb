@@ -28,10 +28,10 @@
           <h1>This is my first article</h1>
           <p class="time">5 August 2010</p>
         </header>
-        <p>Consequatur velit suscipit maiores et.Doloribus quisquam laboriosam voluptas modi saepe.Delectus vel sed similique ut debitis omnis.Qui dicta sed nisi.Assumenda saepe vero sequi quibusdam aspernatur at atque enim.Ut et ut beatae numquam quos maiores.Perspiciatis voluptatum culpa aliquid et atque voluptatem ducimus illo.Assumenda et fugiat amet nihil est sequi aut aut.Optio quia qui architecto deserunt non.Earum autem quia quasi culpa.</p>
+        <p>Consequatur velit suscipit maiores et. Doloribus quisquam laboriosam voluptas modi saepe. Delectus vel sed similique ut debitis omnis. Qui dicta sed nisi. Assumenda saepe vero sequi quibusdam aspernatur at atque enim. Ut et ut beatae numquam quos maiores. Perspiciatis voluptatum culpa aliquid et atque voluptatem ducimus illo. Assumenda et fugiat amet nihil est sequi aut aut. Optio quia qui architecto deserunt non. Earum autem quia quasi culpa.</p>
       </article>
       <aside class="grid_4">
-        <h2>My Category</h2>
+        <h2>Related articles</h2>
         <ul>
           <li><a href="/">Another article</a></li>
           <li><a href="/">Yet another article</a>
@@ -47,23 +47,25 @@
     </nav>
     <div class="clearfix">
       <section id="disqus" class="grid_8">
-        <p>Disqus comments for <b>This is my first article</b> will come here</p>
+        <%= disqus_thread %>
       </section>
       <section id="about_me" class="grid_4">
-        <p>Short snippet about me</p>
+        <p>Developer of all sorts, started with plain HTML &amp; JS in the early y2k, using mostly Ruby these days. Spent a few years in the PHP world primarily due to Textpattern, but now I know better.</p>
+        <p>Besides enjoying a daily, 30mi London commute on <a href="http://twitpic.com/2f1pzl" title="My bird gets new bOObs. ">my Specialized</a>, I like playing with servers on the side and working on the next big thing&trade;.</p>
       </section>
     </div>
     
     <footer class="clearfix">
       <section id="copyright" class="grid_8">
-        &copy;2010 Gerhard Lazu. Built on <a href="http://facebok.com">Padrino</a>.
+        &copy;2010 Gerhard Lazu. Built on <a href="http://www.padrinorb.com">Padrino</a>.
       </section>
       
       <nav id="social" class="grid_4">
         <ul class="clearfix">
-          <li class="twitter"><a href="http://twitter.com/gerhardlazu" class="button small"><span>Twitter</span></a></li>
-          <li class="github"><a href="http://github.com/gerhard" class="button small"><span>Github</span></a></li>
-          <li class="flickr"><a href="http://www.flickr.com/photos/gerhardlazu" class="button small red"><span>Flickr</span></a></li>
+          <li class="twitter"><a href="http://twitter.com/gerhardlazu" title="Gerhard Lazu on Twitter">Twitter</a></li>
+          <li class="flickr"><a href="http://www.flickr.com/photos/gerhardlazu" title="Gerhard Lazu Flickr Photostream">Flickr</a></li>
+          <li class="linkedin"><a href="http://www.linkedin.com/in/gerhardlazu" title="Gerhard Lazu - United Kingdom - LinkedIn">LinkedIn</a></li>
+          <li class="github"><a href="http://github.com/gerhard" title="Gerhard Lazu profile on Github - Social Coding">Github</a></li>
         </ul>
       </nav>
     </footer>

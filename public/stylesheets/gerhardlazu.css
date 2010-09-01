@@ -4,6 +4,7 @@
 @import "common.css";
 @import "buttons.css";
 @import "fonts.css";
+@import "disqus.css";
 
 body {
   font-family: MuseoSans500, "Helvetica Neue", "Helvetica", sans;
