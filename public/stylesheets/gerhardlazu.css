@@ -3,6 +3,11 @@
 @import "960.css";
 @import "common.css";
 @import "buttons.css";
+@import "fonts.css";
+
+body {
+  font-family: MuseoSans500, "Helvetica Neue", "Helvetica", sans;
+}
 
 header#page {
   margin: 20px 0; padding: 0 10px;
@@ -11,8 +16,8 @@ header#page {
 #logo {
   float: left;
   position: relative;
-  width: 167px; height: 50px;
-  font-family: "museo-slab-2";
+  width: 183px; height: 50px;
+  font-family: Museo700;
 }
 #logo .name {
   font-size: 40px;
@@ -20,8 +25,8 @@ header#page {
 }
 #logo .surname {
   -moz-transform:rotate(-90deg); -webkit-transform:rotate(-90deg); -o-transform:rotate(-90deg);
-  font-size: 15px; color: #999;
-  position: absolute; bottom: 19px; right: 0;
+  font-size: 15px; color: #CCC;
+  position: absolute; bottom: 20px; right: 0;
 }
 
 #search {
@@ -37,6 +42,38 @@ header#page {
 
 #main-content {
   clear: both;
+}
+#main-content h1,
+#main-content h2 {
+  font-family: Museo500;
+}
+
+#main-content h1 {
+  margin-bottom: 0;
+}
+#main-content .time {
+  color: #CCC;
+  margin-bottom: 8px;
+}
+
+#main-content article {
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-gap: 20px;
+  font-size: 15px;
+}
+
+#main-content aside {
+  
+}
+
+#main-content aside h2 {
+  margin-bottom: 0;
+}
+#main-content aside ul li {
+  list-style-type: none;
+  margin-left: 20px;
 }
 
 nav#article {
@@ -58,6 +95,7 @@ nav#article li.archive {
 nav#article a {
   display: block;
   padding: 5px 10px;
+  font-family: Museo500;
 }
 nav#article .previous a {
   -webkit-border-top-left-radius: 10px; -webkit-border-bottom-left-radius: 10px;
@@ -74,17 +112,6 @@ nav#article .archive a {
 }
 nav#article a span {
   font-weight: bold;
-}
-
-#main-content article {
-  -moz-column-count: 2;
-  -webkit-column-count: 2;
-  -moz-column-gap: 20px;
-  -webkit-column-gap: 20px;
-}
-
-#main-content aside {
-  
 }
 
 nav#social {
