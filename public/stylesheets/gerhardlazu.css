@@ -26,7 +26,7 @@ header#page {
 }
 #logo .surname {
   -moz-transform:rotate(-90deg); -webkit-transform:rotate(-90deg); -o-transform:rotate(-90deg);
-  font-size: 15px; color: #CCC;
+  font-size: 15px; color: rgb(200, 200, 200);
   position: absolute; bottom: 20px; right: 0;
 }
 
@@ -53,7 +53,7 @@ header#page {
   margin-bottom: 0;
 }
 #main-content .time {
-  color: #CCC;
+  color: rgb(200, 200, 200);
   margin-bottom: 8px;
 }
 
@@ -78,10 +78,10 @@ header#page {
 }
 
 nav#article {
-  margin: 20px 0; padding: 0 10px;
+  margin: 20px 0 30px 0; padding: 0 10px;
 }
 nav#article ul {
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(150, 210, 120);
   -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
 }
 nav#article li.previous {
@@ -96,17 +96,22 @@ nav#article li.archive {
 nav#article a {
   display: block;
   padding: 5px 10px;
-  font-family: Museo500;
+  font-family: Museo700;
+  color: rgb(255, 255, 255);
+}
+nav#article a:hover {
+  color: rgb(150, 210, 120);
+  background-color: rgb(0, 0, 0);
 }
 nav#article .previous a {
-  -webkit-border-top-left-radius: 10px; -webkit-border-bottom-left-radius: 10px;
-  -moz-border-radius-topleft: 10px; -moz-border-radius-bottomleft: 10px;
-  border-top-left-radius: 10px; border-bottom-left-radius: 10px;
+  -webkit-border-top-left-radius: 9px; -webkit-border-bottom-left-radius: 9px;
+  -moz-border-radius-topleft: 9px; -moz-border-radius-bottomleft: 9px;
+  border-top-left-radius: 9px; border-bottom-left-radius: 9px;
 }
 nav#article .next a {
-  -webkit-border-top-right-radius: 10px; -webkit-border-bottom-right-radius: 10px;
-  -moz-border-radius-topright: 10px; -moz-border-radius-bottomright: 10px;
-  border-top-right-radius: 10px; border-bottom-right-radius: 10px;
+  -webkit-border-top-right-radius: 9px; -webkit-border-bottom-right-radius: 9px;
+  -moz-border-radius-topright: 9px; -moz-border-radius-bottomright: 9px;
+  border-top-right-radius: 9px; border-bottom-right-radius: 9px;
 }
 nav#article .archive a {
   width: 43px;
