@@ -29,7 +29,8 @@ a:active,
 #dsq-content a:active {
   background-color: #ffffb7;
 }
-a#logo:hover {
+a#logo:hover,
+#dsq-toolbar-dropdown a:hover {
   background-color: transparent;
 }
 
