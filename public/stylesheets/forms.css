@@ -1,0 +1,10 @@
+#search {
+  float: right;
+  height: 50px; line-height: 50px;
+}
+#search input[type=search] {
+  width: 160px;
+}
+#search label {
+  display: none;
+}

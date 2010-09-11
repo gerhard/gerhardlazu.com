@@ -1,13 +1,36 @@
 @import "reset.css";
 @import "text.css";
 @import "960.css";
-@import "common.css";
-@import "buttons.css";
 @import "fonts.css";
 @import "disqus.css";
+@import "navigation.css";
+@import "forms.css";
 
 body {
   font-family: MuseoSans500, "Helvetica Neue", "Helvetica", sans;
+}
+
+header, footer, nav, article {
+  display:block;
+}
+a {
+  text-decoration: none;
+  color: #6ec145;
+}
+a:visited {
+  text-decoration: underline;
+}
+a#logo:visited {
+  text-decoration: none;
+}
+a:hover,
+a:active,
+#dsq-content a:hover,
+#dsq-content a:active {
+  background-color: #ffffb7;
+}
+a#logo:hover {
+  background-color: transparent;
 }
 
 header#page {
@@ -15,6 +38,7 @@ header#page {
 }
 
 #logo {
+  display: block;
   float: left;
   position: relative;
   width: 183px; height: 50px;
@@ -28,17 +52,6 @@ header#page {
   -moz-transform:rotate(-90deg); -webkit-transform:rotate(-90deg); -o-transform:rotate(-90deg);
   font-size: 15px; color: rgb(200, 200, 200);
   position: absolute; bottom: 20px; right: 0;
-}
-
-#search {
-  float: right;
-  height: 50px; line-height: 50px;
-}
-#search input[type=search] {
-  width: 160px; 
-}
-#search label {
-  display: none;
 }
 
 #main-content {
@@ -58,101 +71,22 @@ header#page {
 }
 
 #main-content article {
-  -moz-column-count: 2;
-  -webkit-column-count: 2;
-  -moz-column-gap: 20px;
-  -webkit-column-gap: 20px;
+  -moz-column-count: 3; -webkit-column-count: 3; column-count: 3;
+  -moz-column-gap: 20px; -webkit-column-gap: 20px; column-gap: 20px;
   font-size: 15px;
 }
 
-#main-content aside {
-  
-}
+#secondary-content aside {
 
-#main-content aside h2 {
-  margin-bottom: 0;
 }
-#main-content aside ul li {
+#secondary-content aside h2 {
+  margin-bottom: 5px;
+}
+#secondary-content aside ul li {
   list-style-type: none;
   margin-left: 20px;
 }
 
-nav#article {
-  margin: 20px 0 30px 0; padding: 0 10px;
-}
-nav#article ul {
-  background-color: rgb(150, 210, 120);
-  -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
-}
-nav#article li.previous {
-  float: left;
-}
-nav#article li.next {
-  float: right;
-}
-nav#article li.archive {
-  margin-left: 48%;
-}
-nav#article a {
-  display: block;
-  padding: 5px 10px;
-  font-family: Museo700;
-  color: rgb(255, 255, 255);
-}
-nav#article a:hover {
-  color: rgb(150, 210, 120);
-  background-color: rgb(0, 0, 0);
-}
-nav#article .previous a {
-  -webkit-border-top-left-radius: 9px; -webkit-border-bottom-left-radius: 9px;
-  -moz-border-radius-topleft: 9px; -moz-border-radius-bottomleft: 9px;
-  border-top-left-radius: 9px; border-bottom-left-radius: 9px;
-}
-nav#article .next a {
-  -webkit-border-top-right-radius: 9px; -webkit-border-bottom-right-radius: 9px;
-  -moz-border-radius-topright: 9px; -moz-border-radius-bottomright: 9px;
-  border-top-right-radius: 9px; border-bottom-right-radius: 9px;
-}
-nav#article .archive a {
-  width: 43px;
-}
-nav#article a span {
-  font-weight: bold;
-}
-
-nav#social {
-
-}
-nav#social li {
-  float: right;
-  padding: 0 0 0 10px;
-}
-nav#social li a {
-  display: block; width: 32px; height: 32px;
-  text-indent: -7777px;
-  opacity: 0.5;
-  -webkit-transition-property: opacity;
-  -webkit-transition-duration: 0.3s;
-  -webkit-transition-timing-function: linear;
-  -moz-transition-property: opacity;
-  -moz-transition-duration: 0.3s;
-  -moz-transition-timing-function: linear;
-  transition-property: opacity;
-  transition-duration: 0.3s;
-  transition-timing-function: linear;
-}
-nav#social li a:hover {
-  opacity: 1.0;
-}
-nav#social li.twitter a {
-  background: url('/images/twitter.png') no-repeat;
-}
-nav#social li.flickr a {
-  background: url('/images/flickr.png') no-repeat;
-}
-nav#social li.linkedin a {
-  background: url('/images/linkedin.png') no-repeat;
-}
-nav#social li.github a {
-  background: url('/images/github.png') no-repeat;
+#secondary-content #about-me p {
+  margin-bottom: 10px;
 }

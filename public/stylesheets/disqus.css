@@ -1,5 +1,6 @@
 #disqus_thread {
-  margin-bottom: 0;
+  margin-top: 5px; margin-bottom: 0;
+  padding-right: 20px;
 }
 
 #disqus #dsq-content #dsq-global-toolbar {

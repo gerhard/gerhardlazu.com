@@ -1,0 +1,87 @@
+nav ul {
+  list-style-type: none;
+  margin: 0; padding: 0;
+}
+nav li {
+  margin: 0; padding: 0;
+}
+
+nav#article {
+  margin: 20px 0 30px 0; padding: 0 10px;
+}
+nav#article ul {
+  background: #000 url('/images/dark-metal.png') repeat-x;
+  -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+}
+nav#article li.previous {
+  float: left;
+}
+nav#article li.next {
+  float: right;
+}
+nav#article li.archive {
+  margin-left: 48%;
+}
+nav#article a {
+  display: block;
+  padding: 5px 10px;
+  font-family: Museo700;
+  color: #fff;
+}
+nav#article a:hover {
+  color: #6ec145;
+  background-color: transparent;
+}
+nav#article .previous a {
+  -webkit-border-top-left-radius: 4px; -webkit-border-bottom-left-radius: 4px;
+  -moz-border-radius-topleft: 4px; -moz-border-radius-bottomleft: 4px;
+  border-top-left-radius: 4px; border-bottom-left-radius: 4px;
+}
+nav#article .next a {
+  -webkit-border-top-right-radius: 4px; -webkit-border-bottom-right-radius: 4px;
+  -moz-border-radius-topright: 4px; -moz-border-radius-bottomright: 4px;
+  border-top-right-radius: 4px; border-bottom-right-radius: 4px;
+}
+nav#article .archive a {
+  width: 43px;
+}
+nav#article a span {
+  font-weight: bold;
+}
+
+nav#social {
+
+}
+nav#social li {
+  float: right;
+  padding: 0 0 0 15px;
+}
+nav#social li a {
+  display: block; width: 32px; height: 32px;
+  text-indent: -7777px;
+  opacity: 0.7;
+  -webkit-transition-property: opacity;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-property: opacity;
+  -moz-transition-duration: 0.3s;
+  -moz-transition-timing-function: linear;
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+}
+nav#social li a:hover {
+  opacity: 1.0;
+}
+nav#social li.twitter a {
+  background: url('/images/twitter.png') no-repeat;
+}
+nav#social li.flickr a {
+  background: url('/images/flickr.png') no-repeat;
+}
+nav#social li.linkedin a {
+  background: url('/images/linkedin.png') no-repeat;
+}
+nav#social li.github a {
+  background: url('/images/github.png') no-repeat;
+}
