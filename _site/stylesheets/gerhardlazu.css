@@ -35,6 +35,10 @@
   text-align: center;
 }
 
+#post {
+  margin-bottom: 2em;
+}
+
 #post h2 {
   color: #aaa;
   margin-top: 1em;
@@ -48,6 +52,11 @@
 #post ul,
 #post ol {
   margin-bottom: 1em;
+}
+
+#post .date {
+  color: #AAA;
+  font-family: Monaco, "Courier New", monospace; font-size: 12px; font-weight: normal;
 }
 
 #post pre {

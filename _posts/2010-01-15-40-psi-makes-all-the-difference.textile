@@ -3,7 +3,7 @@ layout: post
 title: 40psi makes all the difference
 ---
 
-h1. {{ page.title }}
+h1. {{ page.title }} &laquo; <span class="date">{{ page.date | date_to_string }}</span>
 
 Best way to commute in London is by bike, period. Be it "summer":http://twitpic.com/galkt or "winter":http://twitpic.com/wxh0i, there's no faster way to get from A to B. What I've been struggling this winter though were punctures. Even though I got a set of brand new tyres, some slick "GP4000 S Contis":http://www.roadcyclinguk.com/gear-news/continental-gp4000s-clincher-tested/2358.html, I got 3 punctures in a week. That made them the most unreliable tyre I've ever had! I just couldn't believe how poor they performed when everyone on Wiggle was raving how good they were and how many thousands of miles they did without even a single puncture.
 

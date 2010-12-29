@@ -3,7 +3,7 @@ layout: post
 title: vsftpd users on Centos 5
 ---
 
-h1. {{ page.title }}
+h1. {{ page.title }} &laquo; <span class="date">{{ page.date | date_to_string }}</span>
 
 If you're like me and do your server administration from the terminal (GUIs are for kids), then you must have come across the FTP issue. You have clients which design and develop websites for other people. These people require FTP access to their websites to upload the odd PDFs or DOCs. Some are just static websites so they don't have a fancy CMSes with upload functionalities.
 

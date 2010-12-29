@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu Karmic Koala 9.10 NFS mounts in OS X Snow Leopard
 ---
 
-h1. {{ page.title }}
+h1. {{ page.title }} &laquo; <span class="date">{{ page.date | date_to_string }}</span>
 
 <img src="http://img.skitch.com/20100117-1gjckjt3pjid75csji9gniewgg.jpg" class="right shadow" />
 

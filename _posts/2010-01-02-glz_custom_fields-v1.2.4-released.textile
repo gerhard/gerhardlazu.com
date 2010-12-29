@@ -3,7 +3,7 @@ layout: post
 title: glz_custom_fields v1.2.4 released
 ---
 
-h1. {{ page.title }}
+h1. {{ page.title }} &laquo; <span class="date">{{ page.date | date_to_string }}</span>
 
 I wanted to release this new version around Christmas time, but I've put some extra care and attention into it, it's the best release ever. Besides some bugs which have been fixed and some general improvements, there are two big additions to this version:
 
