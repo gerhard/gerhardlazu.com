@@ -1,6 +1,6 @@
-require 'spec/rake/spectask'
+require "rspec/core/rake_task"
 
-Spec::Rake::SpecTask.new(:spec) do |t|
-  t.spec_files = Dir['spec/**/*_spec.rb']
-  t.spec_opts  = %w(-fs --color)
+RSpec::Core::RakeTask.new(:core) do |spec|
+  spec.pattern     = Dir['spec/**/*_spec.rb']
+  spec.rspec_opts  = %w(-fs --color)
 end

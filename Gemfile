@@ -11,7 +11,7 @@ gem 'mongo_mapper'
 gem 'bson_ext', :require => "mongo"
 
 # Test requirements
-gem 'rspec', :group => "test", :require => "spec"
+gem 'rspec', :group => "test"
 gem 'rack-test', :group => "test", :require => "rack/test"
 
 # Padrino
