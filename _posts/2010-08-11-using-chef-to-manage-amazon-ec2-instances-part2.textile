@@ -1,0 +1,116 @@
+---
+layout: post
+title: Using Chef to manage Amazon EC2 instances, Part 2
+categories:
+- chef
+- devops
+---
+h2. Your first EC2 instance
+
+"Now that Amazon AWS authentication is out of the way and Chef client is set up locally":/2010/08/using-chef-to-manage-amazon-ec2-instances-part1, let's create our first EC2 instance.
+
+I am only interested in "Ubuntu AMIs":http://uec-images.ubuntu.com/. I'll set up "the smallest available instance":http://aws.amazon.com/ec2/instance-types/ for testing, I'll choose US East & Lucid Lynx 10.04 LTS 32bit (all reflected in the AMI id). _Small EC2 instances are only 32bit_.
+
+{% highlight bash %}
+$ knife ec2 server create -i ami-5ca44e35 -f m1.small -S ec2-keypair
+{% endhighlight %}
+
+If you get the Availability Zone error, you can choose a zone like this:
+
+{% highlight bash %}
+$ knife ec2 server create -i ami-5ca44e35 -f m1.small -S ec2-keypair -Z us-east-1a
+{% endhighlight %}
+
+I could have created a new EC2 instance with @ec2-run-instances@ as well, but I will be using @knife@ as much as I can because it holds the secret to eternal sysadmin nirvana.
+
+Now that the server is created, let's set up chef-client and register it with our Opscode platform user.
+
+{% highlight bash %}
+$ knife bootstrap <ec2-public-ip-address> -N my-first-ec2-instance -x ubuntu --sudo
+{% endhighlight %}
+
+You'll be shown the public IP after the server is created. I'm giving my new instance a name @my-first-ec2-instance@, I'm logging in as the @ubuntu@ user (root is disabled by default), and I'm running all commands as @sudo@.
+
+After the above is finished, let's see what we have:
+
+{% highlight bash %}
+$ knife node list
+[
+  "my-first-ec2-instance"
+]
+{% endhighlight %}
+
+Congratulations, you've created your first EC2 instance without breaking a sweat!
+
+h2. Your chef cookbooks
+
+We know that @knife@ is the bees knees. But how do you use it with your EC2 instance and available cookbooks?
+
+I am assuming that you have followed the "Getting Started with Chef":https://opscode.tenderapp.com/faqs/start tutorial closely. If you have, you should have your @chef-repo@ locally and @knife@ configured. Let's get some relatively simple cookbooks: "MongoDB":https://github.com/papercavalier/mongodb-cookbook & "Redis":https://github.com/papercavalier/redis-cookbook. Unpack and place them in your @cookbooks@ folder, then upload them to your Opscode platform user:
+
+{% highlight bash %}
+$ knife cookbook upload redis
+$ knife cookbook upload mongodb
+{% endhighlight %}
+
+Let's create a new role for our EC2. We create a new file @roles/master-db.json@ containing:
+
+{% highlight javascript %}
+{
+  "name": "master-db",
+  "default_attributes": {
+    "chef": {
+      "server_url": "https://api.opscode.com/organizations/<your-organization>",
+      "cache_path": "/var/chef/cache",
+      "backup_path": "/var/chef/backup",
+      "validation_client_name": "<your-validator>",
+      "run_path": "/var/chef"
+    }
+  },
+  "json_class": "Chef::Role",
+  "run_list": [
+    "recipe[redis::source]",
+    "recipe[mongodb::source]"
+  ],
+  "description": "Master DB",
+  "chef_type": "role",
+  "override_attributes": {
+  }
+}
+{% endhighlight %}
+
+Upload the role, then assign it to your new EC2 instance:
+
+{% highlight bash %}
+$ knife role from file roles/master-db.json
+$ knife node run_list add my-first-ec2-instance "role[master-db]"
+{% endhighlight %}
+
+Log into your EC2 instance, _change your ubuntu user password_ and run chef-client as sudo:
+
+{% highlight bash %}
+$ ssh ubuntu@ec2-xxx.compute-1.amazonaws.com
+$ sudo -i
+$ passwd ubuntu
+<mysupersecurepassword>
+$ exit
+$ sudo chef-client
+{% endhighlight %}
+
+And that's it! Your new Amazon EC2 instance now has a very recent MongoDB &amp; Redis set up.
+
+If you want to modify any cookbooks, copy the *entire* cookbook into your @site-cookbooks@ folder and get hacking.
+
+h2. Cleaning up
+
+I don't want to leave that EC2 instance running, it was only created for testing purposes after all:
+
+{% highlight bash %}
+$ knife ec2 server list # I need the server ID
+$ knife ec2 server delete i-xxxxxx
+$ knife node delete my-first-ec2-instance
+$ knife node list
+[
+
+]
+{% endhighlight %}

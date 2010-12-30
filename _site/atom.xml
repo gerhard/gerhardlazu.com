@@ -4,7 +4,7 @@
  <title>Gerhard Lazu web feed</title>
  <link href="http://gerhardlazu.com/atom.xml" rel="self"/>
  <link href="http://gerhardlazu.com/"/>
- <updated>2010-12-29T18:42:21+00:00</updated>
+ <updated>2010-12-30T23:25:36+00:00</updated>
  <id>http://gerhardlazu.com/</id>
  <author>
    <name>Gerhard Lazu</name>
@@ -13,102 +13,148 @@
  
  
  <entry>
-   <title>Going live</title>
-   <link href="http://gerhardlazu.com/2010/05/07/going-live/"/>
-   <updated>2010-05-07T00:00:00+01:00</updated>
-   <id>http://gerhardlazu.com/2010/05/07/going-live</id>
-   <content type="html">&lt;h1&gt;Going live &amp;laquo; &lt;span class=&quot;date&quot;&gt;07 May 2010&lt;/span&gt;&lt;/h1&gt;
-&lt;p&gt;It&amp;#8217;s not pretty and it&amp;#8217;s not using the app that I wanted, but I&amp;#8217;ve been sitting on this blog long enough. I just want to write about my development stuff and the quickest way from A to B will have to do &amp;#8211; for now.&lt;/p&gt;
-&lt;p&gt;This new blog is powered by &lt;a href=&quot;http://github.com/mojombo/jekyll&quot;&gt;Jekyll&lt;/a&gt;, deployed via &lt;a href=&quot;http://github.com/mislav/git-deploy&quot;&gt;git-deploy&lt;/a&gt;. I&amp;#8217;ve been in the Ruby world long enough to know how much better it is than &amp;#8211; &lt;strong&gt;sigh&lt;/strong&gt; &amp;#8211; &lt;span class=&quot;caps&quot;&gt;PHP&lt;/span&gt;. I just wanted to manage everything via Textmate, do version control with git and do quick deploys without messing with &lt;span class=&quot;caps&quot;&gt;FTP&lt;/span&gt;. When I write a new post, I just do &lt;code&gt;cap deploy&lt;/code&gt; and all is taken care of.&lt;/p&gt;
-&lt;p&gt;I still have a long way to go before I reach the same level of beauty as &lt;a href=&quot;http://blog.peepcode.com/tutorials/2010/about-this-blog&quot;&gt;Peepcode&amp;#8217;s blog&lt;/a&gt;, but for now I just want to offload all the day-in day-out development stuff.&lt;/p&gt;</content>
+   <title>2011 Resolutions</title>
+   <link href="http://gerhardlazu.com/2010/12/2011-resolutions"/>
+   <updated>2010-12-30T00:00:00+00:00</updated>
+   <id>http://gerhardlazu.com/2010/12/2011-resolutions</id>
+   <content type="html">&lt;h2 id='be_more_pragmatic'&gt;Be more pragmatic&lt;/h2&gt;
+
+&lt;p&gt;Just get shit done basically&lt;/p&gt;</content>
  </entry>
  
  <entry>
-   <title>vsftpd users on Centos 5</title>
-   <link href="http://gerhardlazu.com/2010/02/02/vsftpd-users-centos5/"/>
-   <updated>2010-02-02T00:00:00+00:00</updated>
-   <id>http://gerhardlazu.com/2010/02/02/vsftpd-users-centos5</id>
-   <content type="html">&lt;h1&gt;vsftpd users on Centos 5 &amp;laquo; &lt;span class=&quot;date&quot;&gt;02 Feb 2010&lt;/span&gt;&lt;/h1&gt;
-&lt;p&gt;If you&amp;#8217;re like me and do your server administration from the terminal (GUIs are for kids), then you must have come across the &lt;span class=&quot;caps&quot;&gt;FTP&lt;/span&gt; issue. You have clients which design and develop websites for other people. These people require &lt;span class=&quot;caps&quot;&gt;FTP&lt;/span&gt; access to their websites to upload the odd PDFs or DOCs. Some are just static websites so they don&amp;#8217;t have a fancy CMSes with upload functionalities.&lt;/p&gt;
-&lt;p&gt;For example, I store all my stuff on the server in &lt;code&gt;/home/gerhard&lt;/code&gt;:&lt;/p&gt;
-&lt;/notextile&gt;
+   <title>Using Chef to manage Amazon EC2 instances, Part 2</title>
+   <link href="http://gerhardlazu.com/2010/08/using-chef-to-manage-amazon-ec2-instances-part2"/>
+   <updated>2010-08-11T00:00:00+01:00</updated>
+   <id>http://gerhardlazu.com/2010/08/using-chef-to-manage-amazon-ec2-instances-part2</id>
+   <content type="html">&lt;h2&gt;Your first EC2 instance&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;/2010/08/using-chef-to-manage-amazon-ec2-instances-part1&quot;&gt;Now that Amazon &lt;span class=&quot;caps&quot;&gt;AWS&lt;/span&gt; authentication is out of the way and Chef client is set up locally&lt;/a&gt;, let&amp;#8217;s create our first EC2 instance.&lt;/p&gt;
+&lt;p&gt;I am only interested in &lt;a href=&quot;http://uec-images.ubuntu.com/&quot;&gt;Ubuntu AMIs&lt;/a&gt;. I&amp;#8217;ll set up &lt;a href=&quot;http://aws.amazon.com/ec2/instance-types/&quot;&gt;the smallest available instance&lt;/a&gt; for testing, I&amp;#8217;ll choose US East &amp;amp; Lucid Lynx 10.04 &lt;span class=&quot;caps&quot;&gt;LTS&lt;/span&gt; 32bit (all reflected in the &lt;span class=&quot;caps&quot;&gt;AMI&lt;/span&gt; id). &lt;em&gt;Small EC2 instances are only 32bit&lt;/em&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;knife ec2 server create -i ami-5ca44e35 -f m1.small -S ec2-keypair
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;If you get the Availability Zone error, you can choose a zone like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;knife ec2 server create -i ami-5ca44e35 -f m1.small -S ec2-keypair -Z us-east-1a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;I could have created a new EC2 instance with &lt;code&gt;ec2-run-instances&lt;/code&gt; as well, but I will be using &lt;code&gt;knife&lt;/code&gt; as much as I can because it holds the secret to eternal sysadmin nirvana.&lt;/p&gt;
+&lt;p&gt;Now that the server is created, let&amp;#8217;s set up chef-client and register it with our Opscode platform user.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;knife bootstrap &amp;lt;ec2-public-ip-address&amp;gt; -N my-first-ec2-instance -x ubuntu --sudo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;You&amp;#8217;ll be shown the public IP after the server is created. I&amp;#8217;m giving my new instance a name &lt;code&gt;my-first-ec2-instance&lt;/code&gt;, I&amp;#8217;m logging in as the &lt;code&gt;ubuntu&lt;/code&gt; user (root is disabled by default), and I&amp;#8217;m running all commands as &lt;code&gt;sudo&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;After the above is finished, let&amp;#8217;s see what we have:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;knife node list
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;my-first-ec2-instance&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Congratulations, you&amp;#8217;ve created your first EC2 instance without breaking a sweat!&lt;/p&gt;
+&lt;h2&gt;Your chef cookbooks&lt;/h2&gt;
+&lt;p&gt;We know that &lt;code&gt;knife&lt;/code&gt; is the bees knees. But how do you use it with your EC2 instance and available cookbooks?&lt;/p&gt;
+&lt;p&gt;I am assuming that you have followed the &lt;a href=&quot;https://opscode.tenderapp.com/faqs/start&quot;&gt;Getting Started with Chef&lt;/a&gt; tutorial closely. If you have, you should have your &lt;code&gt;chef-repo&lt;/code&gt; locally and &lt;code&gt;knife&lt;/code&gt; configured. Let&amp;#8217;s get some relatively simple cookbooks: &lt;a href=&quot;https://github.com/papercavalier/mongodb-cookbook&quot;&gt;MongoDB&lt;/a&gt; &amp;amp; &lt;a href=&quot;https://github.com/papercavalier/redis-cookbook&quot;&gt;Redis&lt;/a&gt;. Unpack and place them in your &lt;code&gt;cookbooks&lt;/code&gt; folder, then upload them to your Opscode platform user:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;knife cookbook upload redis
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;knife cookbook upload mongodb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Let&amp;#8217;s create a new role for our EC2. We create a new file &lt;code&gt;roles/master-db.json&lt;/code&gt; containing:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;master-db&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;default_attributes&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;chef&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;server_url&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;https://api.opscode.com/organizations/&amp;lt;your-organization&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;cache_path&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/var/chef/cache&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;backup_path&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/var/chef/backup&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;validation_client_name&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;your-validator&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;run_path&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/var/chef&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;run_list&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;recipe[redis::source]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;recipe[mongodb::source]&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;description&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Master DB&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;chef_type&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;role&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;override_attributes&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Upload the role, then assign it to your new EC2 instance:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;knife role from file roles/master-db.json
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;knife node run_list add my-first-ec2-instance &lt;span class=&quot;s2&quot;&gt;&amp;quot;role[master-db]&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Log into your EC2 instance, &lt;em&gt;change your ubuntu user password&lt;/em&gt; and run chef-client as sudo:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ssh ubuntu@ec2-xxx.compute-1.amazonaws.com
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo -i
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;passwd ubuntu
+&amp;lt;mysupersecurepassword&amp;gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo chef-client
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;And that&amp;#8217;s it! Your new Amazon EC2 instance now has a very recent MongoDB &amp;amp; Redis set up.&lt;/p&gt;
+&lt;p&gt;If you want to modify any cookbooks, copy the &lt;strong&gt;entire&lt;/strong&gt; cookbook into your &lt;code&gt;site-cookbooks&lt;/code&gt; folder and get hacking.&lt;/p&gt;
+&lt;h2&gt;Cleaning up&lt;/h2&gt;
+&lt;p&gt;I don&amp;#8217;t want to leave that EC2 instance running, it was only created for testing purposes after all:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;knife ec2 server list &lt;span class=&quot;c&quot;&gt;# I need the server ID&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;knife ec2 server delete i-xxxxxx
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;knife node delete my-first-ec2-instance
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;knife node list
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
 
-So what happens if I want to allow Carmina FTP access to @carmina.lazu.co.uk@ without her seeing the other folders?
-
-&lt;notextile&gt;&lt;p&gt;Just to be sure, let&amp;#8217;s try and access the server via &lt;span class=&quot;caps&quot;&gt;SSH&lt;/span&gt; with this account. After all, we just created a new system user:&lt;/p&gt;
-&lt;p&gt;&lt;/notextile&gt;&lt;/p&gt;
-&lt;p&gt;And that&amp;#8217;s it. No virtual users, no messing about with &lt;code&gt;pam.d&lt;/code&gt;. It takes a few seconds and it&amp;#8217;s as secure as your system setup.&lt;/p&gt;
-&lt;p&gt;This article assumes you already have &lt;a href=&quot;http://vsftpd.beasts.org/&quot;&gt;vsftpd&lt;/a&gt; installed on the system.&lt;/p&gt;</content>
+&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content>
  </entry>
  
  <entry>
-   <title>40psi makes all the difference</title>
-   <link href="http://gerhardlazu.com/2010/01/15/40-psi-makes-all-the-difference/"/>
-   <updated>2010-01-15T00:00:00+00:00</updated>
-   <id>http://gerhardlazu.com/2010/01/15/40-psi-makes-all-the-difference</id>
-   <content type="html">&lt;h1&gt;40psi makes all the difference &amp;laquo; &lt;span class=&quot;date&quot;&gt;15 Jan 2010&lt;/span&gt;&lt;/h1&gt;
-&lt;p&gt;Best way to commute in London is by bike, period. Be it &lt;a href=&quot;http://twitpic.com/galkt&quot;&gt;summer&lt;/a&gt; or &lt;a href=&quot;http://twitpic.com/wxh0i&quot;&gt;winter&lt;/a&gt;, there&amp;#8217;s no faster way to get from A to B. What I&amp;#8217;ve been struggling this winter though were punctures. Even though I got a set of brand new tyres, some slick &lt;a href=&quot;http://www.roadcyclinguk.com/gear-news/continental-gp4000s-clincher-tested/2358.html&quot;&gt;GP4000 S Contis&lt;/a&gt;, I got 3 punctures in a week. That made them the most unreliable tyre I&amp;#8217;ve ever had! I just couldn&amp;#8217;t believe how poor they performed when everyone on Wiggle was raving how good they were and how many thousands of miles they did without even a single puncture.&lt;/p&gt;
-&lt;h2&gt;Not enough psi&lt;/h2&gt;
-&lt;p&gt;I&amp;#8217;ve been running those tyres at 60psi, so any sharper pebble or bigger pothole taken straight on would go straight to the inner tube. Without at least 100psi in those sort of tyres, you are looking for trouble! Since putting in 40psi more, handling has improved massively and no more punctures in the last week : ).&lt;/p&gt;
-&lt;p class=&quot;list&quot;&gt;So, if you&amp;#8217;ll start getting punctures willy nilly there are 2 things to consider:&lt;/p&gt;
-&lt;ul&gt;
-	&lt;li&gt;check and double-check your tyre pressure&lt;/li&gt;
-	&lt;li&gt;your tyres might be in the last 10% of their life span, it&amp;#8217;s time to get new ones&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Pro tip (by Evans Cycles)&lt;/h2&gt;
-&lt;p&gt;Apparently, cars fitted with Michelin tyres leave very fine strands of wire, so if one of those gets through, your inner tubes will start losing air mysteriously. Run a cloth through the inner of the tyre and make sure it&amp;#8217;s perfectly clean.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Ubuntu Karmic Koala 9.10 NFS mounts in OS X Snow Leopard</title>
-   <link href="http://gerhardlazu.com/2010/01/09/-ubuntu-karmic-koala-9.10-nfs-mounts-in-os-x-snow-leopard/"/>
-   <updated>2010-01-09T00:00:00+00:00</updated>
-   <id>http://gerhardlazu.com/2010/01/09/-ubuntu-karmic-koala-9.10-nfs-mounts-in-os-x-snow-leopard</id>
-   <content type="html">&lt;h1&gt;Ubuntu Karmic Koala 9.10 &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; mounts in OS X Snow Leopard &amp;laquo; &lt;span class=&quot;date&quot;&gt;09 Jan 2010&lt;/span&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&quot;http://img.skitch.com/20100117-1gjckjt3pjid75csji9gniewgg.jpg&quot; class=&quot;right shadow&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;This is by far the easiest and quickest way to set up Ubuntu as a &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; server. We have 2 Mac laptops and a PC with a few terabytes of storage, the ideal candidate for &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;I installed the required packages for &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; on the Ubuntu box and configured the shares:&lt;/p&gt;
-&lt;/notextile&gt;
+   <title>Using Chef to manage Amazon EC2 instances, Part 1</title>
+   <link href="http://gerhardlazu.com/2010/08/using-chef-to-manage-amazon-ec2-instances-part1"/>
+   <updated>2010-08-10T00:00:00+01:00</updated>
+   <id>http://gerhardlazu.com/2010/08/using-chef-to-manage-amazon-ec2-instances-part1</id>
+   <content type="html">&lt;p&gt;So now that you have you Amazon &lt;span class=&quot;caps&quot;&gt;AWS&lt;/span&gt; account, you must feel smug and think that you&amp;#8217;re on the top of the cloud computing world. Not so quick tiger. Let&amp;#8217;s say that you fire up an EC2 instance, what next? How are you going to configure it? Let&amp;#8217;s tackle this step by step. I&amp;#8217;m on OS X by the way, you should be too.&lt;/p&gt;
+&lt;h2&gt;Keys, Certificates &amp;amp; authentication&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://github.com/mxcl/homebrew&quot;&gt;Install brew&lt;/a&gt; if you don&amp;#8217;t have it, then create an &lt;code&gt;.ec2&lt;/code&gt; folder:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew install ec2-api-tools
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir ~/.ec2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Create a file in the newly created folder called e.g. &lt;code&gt;gerhard_aws&lt;/code&gt; containing:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
 
-This is how my @/etc/exports@ looks like:
-
-&lt;notextile&gt;&lt;p&gt;Those 2 folders are shared with all computers on the &lt;span class=&quot;caps&quot;&gt;LAN&lt;/span&gt;. Notice the &lt;code&gt;insecure&lt;/code&gt; option. Without it, OS X won&amp;#8217;t be able to mount the &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; shares.&lt;/p&gt;
-&lt;p&gt;Now just export those changes and restart the &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; daemon:&lt;/p&gt;
-&lt;/notextile&gt;
-
-Now that NFS is all set up on the Ubuntu box, let's connect to it from one of the Macs. In Finder, go to Go &gt; Connect to Server, and enter the path to your NFS. This is how mine looks like:
-
-&lt;p class=&quot;align-center&quot;&gt;&lt;img src=&quot;http://img.skitch.com/20100121-rq91jk3buwh77uabxqpan3kan1.jpg&quot; /&gt;&lt;/p&gt;
-
-If you want icons on your desktop as you saw at the beginning of this post, run this in Terminal:
-
-&lt;notextile&gt;&lt;h2&gt;Pro tip &amp;#8211; &lt;span class=&quot;caps&quot;&gt;MAKE&lt;/span&gt; &lt;span class=&quot;caps&quot;&gt;SURE&lt;/span&gt; &lt;span class=&quot;caps&quot;&gt;YOU&lt;/span&gt; &lt;span class=&quot;caps&quot;&gt;KNOW&lt;/span&gt; &lt;span class=&quot;caps&quot;&gt;WHAT&lt;/span&gt; YOU&amp;#8217;RE &lt;span class=&quot;caps&quot;&gt;DOING&lt;/span&gt;!&lt;/h2&gt;
-&lt;p&gt;If you can&amp;#8217;t write data to the &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; it&amp;#8217;s because your Mac&amp;#8217;s &lt;span class=&quot;caps&quot;&gt;UID&lt;/span&gt; doesn&amp;#8217;t match your Linux one. My initial &lt;span class=&quot;caps&quot;&gt;UID&lt;/span&gt; on the Mac was &lt;code&gt;501&lt;/code&gt;, while on Linux it&amp;#8217;s &lt;code&gt;1000&lt;/code&gt;, so I did the following:&lt;/p&gt;
-&lt;p&gt;&lt;/notextile&gt;&lt;/p&gt;
-&lt;p&gt;Again, make sure you know what you&amp;#8217;re doing because the above can mess your system pretty bad. Running the &lt;code&gt;find&lt;/code&gt; command can take a considerable amount of time based on how much data you have. I had a few hundred GBs which took about 20 minutes to modify.&lt;/p&gt;
-&lt;h2&gt;Reference&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;http://nfs.sourceforge.net/nfs-howto/index.html&quot;&gt;Linux &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; &amp;#8211; &lt;span class=&quot;caps&quot;&gt;HOWTO&lt;/span&gt;&lt;/a&gt; (brilliant &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; reference guide)&lt;br /&gt;
-&lt;a href=&quot;http://ubuntuforums.org/showthread.php?t=181358&quot;&gt;Connecting OS X to Ubuntu &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; Share&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;http://blogs.sun.com/jag/entry/nfs_on_snow_leopard&quot;&gt;&lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; on Snow Leopard&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;http://osxdaily.com/2009/02/19/mac-os-x-change-your-user-id/&quot;&gt;OS X Change your User ID&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;http://www.cyberciti.biz/faq/linux-unix-tuning-nfs-server-client-performance/&quot;&gt;Tune &lt;span class=&quot;caps&quot;&gt;NFS&lt;/span&gt; Performance&lt;/a&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>glz_custom_fields v1.2.4 released</title>
-   <link href="http://gerhardlazu.com/2010/01/02/glz_custom_fields-v1.2.4-released/"/>
-   <updated>2010-01-02T00:00:00+00:00</updated>
-   <id>http://gerhardlazu.com/2010/01/02/glz_custom_fields-v1.2.4-released</id>
-   <content type="html">&lt;h1&gt;glz_custom_fields v1.2.4 released &amp;laquo; &lt;span class=&quot;date&quot;&gt;02 Jan 2010&lt;/span&gt;&lt;/h1&gt;
-&lt;p&gt;I wanted to release this new version around Christmas time, but I&amp;#8217;ve put some extra care and attention into it, it&amp;#8217;s the best release ever. Besides some bugs which have been fixed and some general improvements, there are two big additions to this version:&lt;/p&gt;
-&lt;h2&gt;Custom field values from script&lt;/h2&gt;
-&lt;p&gt;A lot of you have been asking for scripts to populate the values which appear under custom fields in the Write tab, this release makes that possible.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/glz_custom_fields-v1.2.4/custom_script.png&quot; alt=&quot;glz_custom_fields v1.2.4 Custom Scripts&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/glz_custom_fields-v1.2.4/time_picker.png&quot; alt=&quot;glz_custom_fields v1.2.4 Time Picker&quot; class=&quot;right&quot; /&gt;&lt;/p&gt;
-&lt;h2&gt;Time Picker&lt;/h2&gt;
-&lt;p&gt;The Date Picker field got a new friend, the Time Picker.&lt;/p&gt;
-&lt;p&gt;To see what exacly has been done, check the &lt;a href=&quot;http://github.com/gerhard/glz_custom_fields_public/issues/closed&quot;&gt;glz_custom_fields v1.2.4 issues on github&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;What you can expect in &lt;a href=&quot;http://github.com/gerhard/glz_custom_fields_public/issues/labels/v1.2.5&quot;&gt;glz_custom_fields v1.2.5&lt;/a&gt;&lt;/p&gt;</content>
+&lt;span class=&quot;c&quot;&gt;# Setup Amazon EC2 Command-Line Tools&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;EC2_ACCESS_KEY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;your-access-key&amp;gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;EC2_SECRET_KEY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;your-secret-key&amp;gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;/System/Library/Frameworks/JavaVM.framework/Home&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;EC2_PRIVATE_KEY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$(/bin/ls $HOME/.ec2/pk-*.pem)&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;EC2_CERT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$(/bin/ls $HOME/.ec2/cert-*.pem)&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;EC2_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;/usr/local/Cellar/ec2-api-tools/&amp;lt;your-version&amp;gt;/jars&amp;quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# ec2-version w/o date&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The Access Key, Secret Key and Certificate should be easy to find in your Amazon &lt;span class=&quot;caps&quot;&gt;AWS&lt;/span&gt; account. You&amp;#8217;ll find them in &lt;em&gt;Account &amp;gt; Security Credentials&lt;/em&gt;. You should be given the Private Key when creating your first keypair, but I&amp;#8217;m not 100% sure. You need to move this Private Key into the same &lt;code&gt;.ec2&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;In your shell&amp;#8217;s configuration file add the following and reload the shell environment:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; -s &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.ec2/gerhard_aws &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.ec2/gerhard_aws
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Let&amp;#8217;s generate a new keypair now:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ec2-add-keypair ec2-keypair
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Put everything after &lt;code&gt;-----BEGIN RSA PRIVATE KEY-----&lt;/code&gt; into a new file called the same name as the keypair (&lt;code&gt;ec2-keypair&lt;/code&gt; in my example). When done, let&amp;#8217;s add this key to our agent so that we can ssh into our EC2 instances with no extra hassle:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ssh-add ~/.ec2/ec2-keypair
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ssh-add -l &lt;span class=&quot;c&quot;&gt;# make sure it was added!&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;As an extra tip, keep your &lt;code&gt;.ec2&lt;/code&gt; folder on &lt;a href=&quot;https://www.dropbox.com/&quot;&gt;Dropbox&lt;/a&gt; and just symlink it to your home folder:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ln -nfs ~/Dropbox/dotfiles/.ec2 ~/.ec2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;h2&gt;Create Opscode account &amp;amp; install Chef locally&lt;/h2&gt;
+&lt;p&gt;There is an excellent, up-to-date write-up on &lt;a href=&quot;https://opscode.tenderapp.com/faqs/start&quot;&gt;Getting Started with Chef&lt;/a&gt;, follow it!&lt;/p&gt;
+&lt;p&gt;Make sure that you install the following gems, they will save you a good &lt;del&gt;ba&amp;#8230;&lt;/del&gt; head scratch later:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem install net-ssh-multi fog highline
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;At step 2, &lt;em&gt;Create your Chef repository&lt;/em&gt;, I have created another folder on Dropbox and just symlinked it from there. I have also added the following to my &lt;code&gt;.chef/knife.rb&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Amazon AWS&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;knife&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:aws_access_key_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;EC2_ACCESS_KEY&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;knife&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:aws_secret_access_key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;EC2_SECRET_KEY&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;I have also changed the &lt;code&gt;cookbook_path&lt;/code&gt; to this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;cookbook_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_dir&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/../site-cookbooks&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_dir&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/../cookbooks&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href=&quot;/2010/08/using-chef-to-manage-amazon-ec2-instances-part2&quot;&gt;We&amp;#8217;ll create our first EC2 instance &amp;amp; configure it in the next part&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
  

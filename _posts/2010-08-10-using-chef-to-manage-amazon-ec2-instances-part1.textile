@@ -1,0 +1,86 @@
+---
+layout: post
+title: Using Chef to manage Amazon EC2 instances, Part 1
+categories:
+- chef
+- devops
+---
+So now that you have you Amazon AWS account, you must feel smug and think that you're on the top of the cloud computing world. Not so quick tiger. Let's say that you fire up an EC2 instance, what next? How are you going to configure it? Let's tackle this step by step. I'm on OS X by the way, you should be too.
+
+h2. Keys, Certificates & authentication
+
+"Install brew":http://github.com/mxcl/homebrew if you don't have it, then create an @.ec2@ folder:
+
+{% highlight bash %}
+$ brew install ec2-api-tools
+$ mkdir ~/.ec2
+{% endhighlight %}
+
+Create a file in the newly created folder called e.g. @gerhard_aws@ containing:
+
+{% highlight bash %}
+#!/bin/sh
+
+# Setup Amazon EC2 Command-Line Tools
+export EC2_ACCESS_KEY="<your-access-key>"
+export EC2_SECRET_KEY="<your-secret-key>"
+export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
+export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
+export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
+export EC2_HOME="/usr/local/Cellar/ec2-api-tools/<your-version>/jars" # ec2-version w/o date
+{% endhighlight %}
+
+The Access Key, Secret Key and Certificate should be easy to find in your Amazon AWS account. You'll find them in _Account > Security Credentials_. You should be given the Private Key when creating your first keypair, but I'm not 100% sure. You need to move this Private Key into the same @.ec2@ folder.
+
+In your shell's configuration file add the following and reload the shell environment:
+
+{% highlight bash %}
+if [[ -s $HOME/.ec2/gerhard_aws ]] then
+  source $HOME/.ec2/gerhard_aws
+fi
+{% endhighlight %}
+
+Let's generate a new keypair now:
+
+{% highlight bash %}
+$ ec2-add-keypair ec2-keypair
+{% endhighlight %}
+
+Put everything after @-----BEGIN RSA PRIVATE KEY-----@ into a new file called the same name as the keypair (@ec2-keypair@ in my example). When done, let's add this key to our agent so that we can ssh into our EC2 instances with no extra hassle:
+
+{% highlight bash %}
+$ ssh-add ~/.ec2/ec2-keypair
+$ ssh-add -l # make sure it was added!
+{% endhighlight %}
+
+As an extra tip, keep your @.ec2@ folder on "Dropbox":https://www.dropbox.com/ and just symlink it to your home folder:
+
+{% highlight bash %}
+$ ln -nfs ~/Dropbox/dotfiles/.ec2 ~/.ec2
+{% endhighlight %}
+
+h2. Create Opscode account &amp; install Chef locally
+
+There is an excellent, up-to-date write-up on "Getting Started with Chef":https://opscode.tenderapp.com/faqs/start, follow it!
+
+Make sure that you install the following gems, they will save you a good -ba...- head scratch later:
+
+{% highlight bash %}
+$ gem install net-ssh-multi fog highline
+{% endhighlight %}
+
+At step 2, _Create your Chef repository_, I have created another folder on Dropbox and just symlinked it from there. I have also added the following to my @.chef/knife.rb@:
+
+{% highlight ruby %}
+# Amazon AWS
+knife[:aws_access_key_id]     = ENV['EC2_ACCESS_KEY']
+knife[:aws_secret_access_key] = ENV['EC2_SECRET_KEY']
+{% endhighlight %}
+
+I have also changed the @cookbook_path@ to this:
+
+{% highlight ruby %}
+cookbook_path ["#{current_dir}/../site-cookbooks", "#{current_dir}/../cookbooks"]
+{% endhighlight %}
+
+"We'll create our first EC2 instance &amp; configure it in the next part":/2010/08/using-chef-to-manage-amazon-ec2-instances-part2

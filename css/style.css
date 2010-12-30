@@ -1,0 +1,171 @@
+body {
+  background: #446;
+  font: 12px "Lucida Grande", Verdanda, helvetica, arial, clean, sans-serif;
+  *font-size: small;
+  text-align: center;
+  color: #eee;
+}
+
+ul {
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+}
+
+h1 {
+  margin: 0.5em 0 0 0;
+}
+
+h2 {
+  font-size: 1.2em;
+  padding-top: 15px;
+  text-shadow: #333 1px 1px 3px;
+  color: white;
+}
+
+p {
+  margin: 1em 0;
+}
+
+a {
+  color: #88a;
+}
+
+a:hover {
+  color: black;
+}
+
+a:visited {
+  color: #aac;
+}
+a img {
+  border: none;
+}
+table {
+  font-size: inherit;
+  font: 100%;
+}
+blockquote {
+  font-style: italic;
+  margin-left: 30px;
+  color: #555;
+  border: 1px dashed #555;
+  padding: 0 15px;
+}
+
+/* site */
+div.site {
+   font-size: 125%;
+   text-align: justify;
+   width: 48em;
+   margin: 3em auto;
+   line-height: 1.75em;
+   padding: 1em;
+}
+
+
+.footer img.portrait {
+   border: 7px solid #668;
+   margin-left: 15px;
+   float: right;
+}
+
+.title {
+   font-weight: bold;
+   margin-bottom: 0.7em;
+   margin-right: 2em;
+}
+.notice
+{
+  background: #335;
+  padding: 5px 15px;
+  margin: 10px 0;
+}
+
+.title a, .post h1 a {
+   color: white;
+   font-size: 2em;
+   text-decoration: none;
+   text-shadow: #333 2px 2px 4px;
+}
+
+.title a
+{
+  font-size: 1.25em;
+}
+
+.header .title a:hover {
+   color: black;
+}
+
+.header .menu {
+  float: left;
+  font-size: 115%;
+}
+
+.header .menu li {
+   list-style-type: none;
+   display: inline;
+   margin-right: 0.3em;
+}
+
+.header .menu li a {
+   color: #777;
+   text-decoration: none;
+}
+
+.header .menu li a:hover {
+  color: black;
+}
+
+/* posts */
+
+.posts li {
+   list-style-type: none;
+}
+
+/* footer */
+.footer {
+  padding-top: 1em;
+  clear: both;
+  border-top: 3px solid #668;
+  margin: 1em 0 2em 0;
+}
+.footer .contact {
+  text-align:right;
+}
+.footer .rss {
+   float: left;
+   width: 100px;
+}
+
+.file {
+   border: 1px solid #777;
+}
+
+.file .name {
+   background-color: #aaa;
+   padding: 0.7em;
+   border-bottom: 1px solid #777;
+   font-family:
+}
+
+.file .text {
+  padding: 0.7em;
+}
+
+em {
+  font-weight: bold;
+  font-style: normal;
+  background: #668;
+  padding:2px 3px;
+}
+
+.strap
+{
+  font-size:90%;
+  color:#88a;
+}
