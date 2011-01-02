@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+rm -fr _site && jekyll && rsync -avz --delete --human-readable _site/ emma:gerhardlazu.com/public
