@@ -14,7 +14,7 @@
    <!-- Chrome Frame is only invoked if meta element for compatibility mode is within the first 1K bytes code.google.com/p/chromium/issues/detail?id=23003 -->
 
    <title>{{ page.title }}</title>
-   <meta name="description" content="Personal blog of Gerhard Lazu">
+   <meta name="description" content="{{ page.title }}">
    <meta name="author" content="Gerhard Lazu" />
 
    <link href="http://feeds.feedburner.com/gerhardlazu" rel="alternate" title="Gerhard Lazu" type="application/atom+xml" />
@@ -50,12 +50,13 @@
   <script type="text/javascript">
   //<![CDATA[
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-106574-1']);
+    _gaq.push(['_setAccount', 'UA-106574-21']);
     _gaq.push(['_trackPageview']);
+
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   //]]>
   </script>

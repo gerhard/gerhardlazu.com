@@ -1,9 +1,9 @@
 body {
-  background: #446;
+  background: #500;
   font: 12px "Lucida Grande", Verdanda, helvetica, arial, clean, sans-serif;
   *font-size: small;
   text-align: center;
-  color: #eee;
+  color: #fff;
 }
 
 ul {
@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  margin: 0.5em 0 0 0;
+  margin: 0 0 0.1em 0;
 }
 
 h2 {
@@ -31,19 +31,29 @@ p {
 }
 
 a {
-  color: #88a;
+  color: #C00;
+  text-decoration: none;
+  border-bottom: 1px solid #500;
 }
-
-a:hover {
-  color: black;
-}
-
 a:visited {
-  color: #aac;
+  border-bottom: 1px solid #C00;
 }
 a img {
   border: none;
 }
+a:hover {
+  color: #F00;
+  border-bottom: 1px solid #F00;
+}
+.post h1 a.home,
+.post h1 a.home:hover,
+.title a,
+.title a:hover,
+.rss a,
+.rss a:hover {
+  border-bottom: none;
+}
+
 table {
   font-size: inherit;
   font: 100%;
@@ -68,7 +78,7 @@ div.site {
 
 
 .footer img.portrait {
-   border: 7px solid #668;
+   border: 7px solid #300;
    margin-left: 15px;
    float: right;
 }
@@ -85,9 +95,11 @@ div.site {
   margin: 10px 0;
 }
 
-.title a, .post h1 a {
+.title a,
+.post h1 {
    color: white;
    font-size: 2em;
+   line-height: 1.1em;
    text-decoration: none;
    text-shadow: #333 2px 2px 4px;
 }
@@ -131,7 +143,7 @@ div.site {
 .footer {
   padding-top: 1em;
   clear: both;
-  border-top: 3px solid #668;
+  border-top: 3px solid #300;
   margin: 1em 0 2em 0;
 }
 .footer .contact {
@@ -160,12 +172,12 @@ div.site {
 em {
   font-weight: bold;
   font-style: normal;
-  background: #668;
+  background: #900;
   padding:2px 3px;
 }
 
 .strap
 {
   font-size:90%;
-  color:#88a;
+  color: rgba(255, 255, 255, 0.5);
 }

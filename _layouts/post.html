@@ -2,7 +2,7 @@
 layout: default
 ---
 <div id="post" class="post">
-  <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
+  <h1>{{ page.title }} <a href="/" class="home">⎋</a></h1>
   <div class="strap">Gerhard Lazu • {{ page.date | date: "%A %d %B %Y" }}</div>
   {{ content }}
 </div>
@@ -10,7 +10,7 @@ layout: default
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-  // var disqus_developer = 1;
+  var disqus_developer = 1;
   var disqus_shortname = 'gerhardlazu';
   var disqus_identifier = '{{page.url}}';
   var disqus_url = 'http://gerhardlazu.com{{page.url}}';
@@ -21,7 +21,6 @@ layout: default
   })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 <div id="related">
   <h2>Related Posts</h2>

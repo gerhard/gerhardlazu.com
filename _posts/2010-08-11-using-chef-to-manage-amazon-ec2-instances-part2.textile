@@ -5,21 +5,15 @@ categories:
 - chef
 - devops
 ---
-h2. Your first EC2 instance
+Now that Amazon AWS authentication is out of the way and Chef client is set up locally, let's create our first EC2 instance.
 
-"Now that Amazon AWS authentication is out of the way and Chef client is set up locally":/2010/08/using-chef-to-manage-amazon-ec2-instances-part1, let's create our first EC2 instance.
-
-I am only interested in "Ubuntu AMIs":http://uec-images.ubuntu.com/. I'll set up "the smallest available instance":http://aws.amazon.com/ec2/instance-types/ for testing, I'll choose US East & Lucid Lynx 10.04 LTS 32bit (all reflected in the AMI id). _Small EC2 instances are only 32bit_.
-
-{% highlight bash %}
-$ knife ec2 server create -i ami-5ca44e35 -f m1.small -S ec2-keypair
-{% endhighlight %}
-
-If you get the Availability Zone error, you can choose a zone like this:
+I am only interested in "Ubuntu AMIs":http://uec-images.ubuntu.com/. I'll set up "the smallest available instance":http://aws.amazon.com/ec2/instance-types/ for testing, I'll choose US East & Lucid Lynx 10.04 LTS 32bit (all reflected in the AMI id). I am also going to choose my availability zone by using the @-Z@ option. This comes in handy for when you get the *Availability Zone Error*.
 
 {% highlight bash %}
 $ knife ec2 server create -i ami-5ca44e35 -f m1.small -S ec2-keypair -Z us-east-1a
 {% endhighlight %}
+
+_Small EC2 instances are 32bit only_
 
 I could have created a new EC2 instance with @ec2-run-instances@ as well, but I will be using @knife@ as much as I can because it holds the secret to eternal sysadmin nirvana.
 
@@ -99,7 +93,7 @@ $ sudo chef-client
 
 And that's it! Your new Amazon EC2 instance now has a very recent MongoDB &amp; Redis set up.
 
-If you want to modify any cookbooks, copy the *entire* cookbook into your @site-cookbooks@ folder and get hacking.
+If you want to modify any cookbooks, copy the entire cookbook into your @site-cookbooks@ folder and get hacking.
 
 h2. Cleaning up
 

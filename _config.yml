@@ -1,7 +1,5 @@
 title:      "Gerhard Lazu"
-auto:       true
-server:     true
 pygments:   true
 lsi:        false
 permalink:  /:year/:month/:title
-exclude:    ['Gemfile', 'Gemfile.lock', 'lib']
+exclude:    ['Gemfile', 'Gemfile.lock', 'lib', 'tasks']

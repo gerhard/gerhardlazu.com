@@ -40,15 +40,11 @@ if [[ -s $HOME/.ec2/gerhard_aws ]] then
 fi
 {% endhighlight %}
 
-Let's generate a new keypair now:
+After generating a new EC2 keypair, put everything starting with @-----BEGIN RSA PRIVATE KEY-----@ into a new file called the same name as the keypair (@ec2-keypair@ in my example). When done, let's add this key to our agent so that we can ssh into our EC2 instances with no extra hassle:
 
 {% highlight bash %}
 $ ec2-add-keypair ec2-keypair
-{% endhighlight %}
-
-Put everything after @-----BEGIN RSA PRIVATE KEY-----@ into a new file called the same name as the keypair (@ec2-keypair@ in my example). When done, let's add this key to our agent so that we can ssh into our EC2 instances with no extra hassle:
-
-{% highlight bash %}
+# this will output the new keypir contents
 $ ssh-add ~/.ec2/ec2-keypair
 $ ssh-add -l # make sure it was added!
 {% endhighlight %}
@@ -69,18 +65,14 @@ Make sure that you install the following gems, they will save you a good -ba...-
 $ gem install net-ssh-multi fog highline
 {% endhighlight %}
 
-At step 2, _Create your Chef repository_, I have created another folder on Dropbox and just symlinked it from there. I have also added the following to my @.chef/knife.rb@:
+At step 2, _Create your Chef repository_, I have created another folder on Dropbox and just symlinked it from there. I have also modified the cookbook path and added the AWS keys to @.chef/knife.rb@:
 
 {% highlight ruby %}
+cookbook_path ["#{current_dir}/../site-cookbooks", "#{current_dir}/../cookbooks"]
 # Amazon AWS
 knife[:aws_access_key_id]     = ENV['EC2_ACCESS_KEY']
 knife[:aws_secret_access_key] = ENV['EC2_SECRET_KEY']
 {% endhighlight %}
 
-I have also changed the @cookbook_path@ to this:
-
-{% highlight ruby %}
-cookbook_path ["#{current_dir}/../site-cookbooks", "#{current_dir}/../cookbooks"]
-{% endhighlight %}
-
-"We'll create our first EC2 instance &amp; configure it in the next part":/2010/08/using-chef-to-manage-amazon-ec2-instances-part2
+We'll create our first EC2 instance &amp; configure it in the second part:
+"Using Chef to manage Amazon EC2 instances, Part 2":/2010/08/using-chef-to-manage-amazon-ec2-instances-part2

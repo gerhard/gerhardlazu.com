@@ -1,0 +1,51 @@
+---
+layout: post
+title: 2011 Resolutions
+categories:
+- life
+- resolutions
+---
+
+## Be more pragmatic
+
+Take this blog for example. I had the new version done for January 2010. A year has gone by while I kept switching between Nesta, Toto, Padrino and Sinatra, yet the blog was still not live! It's all water under the bridge, I can now focus on content and experiment with newer, better options as time permits.
+
+_Get shit done, then iterate_
+
+## Lose 12kg (or 25lbs)
+
+I cycle as much as 150 miles every week, daily commute being 30 miles, but my appetite rivals a hyppo's. December is not a good month for exercising anyways, you tend to stay around the house more, shop more and indulge in all sorts of treats. A little baby limits your activities a lot, so it all adds up. I also have a sweet tooth, so when you combine that with a desk job, you gain lots of pounds, very quickly. That being said, I'm making this my top priority for 2011. After all, I have a honeymoon to look forward to.
+
+_Stop eating shit, work out more_
+
+## Switch to vim
+
+I have been using Textmate for years now, I've only played with vim briefly, most of it was in my gap between Macs. I had an older desktop which made a snazzy little Linux development machine, vim was the only serious text editor. There is gedit that comes close to Textmate, but vim is the benchmark on Linux. Yes emacs is the dog's nuts also, but I just don't get it, so there, flame war avoided.
+
+_Don't take shit from your text editor, make it bend like a porn star_
+
+## Become a British citizen
+
+I have been living in the UK for over 7 years now, I can see myself living here for many more. I got married here, my baby boy was born here, I am working in London with awesome people, there's no real reason to want to go anywhere else. It is said that it takes about 7 years for every single cell in the human body to get regenerated, so since all of them are British in mine, it's time to get the paperwork done.
+
+_Don't accept bullshit, do the honourable thing_
+
+## Bring out glz_custom_fields v2.0
+
+For those that don't know, I've written this plugin for [Textpattern](http://textpattern.com) in autumn 2007 and it had stellar success. It a nutshell, it turbo charges  custom fields. If articles are regarded as objects, custom fields would be their properties. [glz_custom_fields](https://github.com/gerhard/glz_custom_fields_public) is a super stable plugin which powers **a lot** of websites. Adding new features to a mature, untested and fairly complex PHP script is not something I look forward to. I have been considering various approaches, I am planning to start work on the new major version early this year. With a bit of luck, it will be ready for TXP 5.
+
+_Reinvent some legacy code and make it shit hot_
+
+## Take our honeymoon
+
+Having a baby **is** a big deal, more so if you live away from all your family. We wanted to tackle the big task first, we knew that the honeymoon will be appreciated even more after the baby. We still have almost another year to go, but boy are we looking forward to it! The expectations are not high, we just want to get away from the daily baby ruled routines and soak in some sun and warm, white sand with turquoise, crystal clear water. Cuba, you cannot come soon enough!
+
+_Take a break from cleaning shit, go on an awesome holiday_
+
+## Release my own Ruby app
+
+Everything that I've been doing for the past 3 years will converge in this one app. I've been working on various aspects of it for over a year now, it should be all coming together nicely in 2011. I don't want it to become a cash cow or my retirement fund. It's something that I enjoy doing and would like to continue working on in my spare time. If others will find it useful, I'll be glad, if not, my life will be better having it, and that's all that matters.
+
+_Stop dreaming shit, this is it, make it work_
+
+That's me for 2011, what about you?

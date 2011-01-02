@@ -6,7 +6,7 @@ title: Gerhard Lazu
 <div id="home">
   <div id="current" class="post">
     <div id="post" class="post">
-      <h1><a href="{{ first_post.url }}">{{ first_post.title }}</a></h1>
+      <h1>{{ first_post.title }}</h1>
       <div class="strap">Gerhard Lazu • {{ first_post.date | date: "%A %d %B %Y" }}</div>
       {{ first_post.content  }}
     </div>
@@ -14,10 +14,10 @@ title: Gerhard Lazu
   </div>
   {% if site.posts.size > 1 %}
   <div class="archive">
-    <h1>Older Posts</h1>
+    <h2>Older Posts</h2>
     <ul class="posts">
       {% for post in site.posts %}
-      {% if forloop.index < 7 and forloop.index > 1 %}<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>{% endif %}
+      {% if forloop.index < 11 and forloop.index > 1 %}<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>{% endif %}
       {% endfor %}
     </ul>
   </div>
