@@ -8,7 +8,7 @@ categories:
 
 ## Be more pragmatic
 
-Take this blog for example. I had the new version done for January 2010. A year has gone by while I kept switching between Nesta, Toto, Padrino and Sinatra, yet the blog was still not live! It's all water under the bridge, I can now focus on content and experiment with newer, better options as time permits.
+Take this blog for example. I had the new version done for January 2010. A year has gone by while I kept switching between Nesta, Toto, Padrino and Sinatra, yet the blog was still not live! Now I'm running on [Jekyll](https://github.com/mojombo/jekyll), I can now focus on content and experiment with newer, better options as time permits.
 
 _Get shit done, then iterate_
 
