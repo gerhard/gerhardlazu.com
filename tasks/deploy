@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-rm -fr _site && jekyll && rsync -avz --delete --human-readable _site/ lexi:~gerhard/gerhardlazu.com/public
+rm -fr _site && jekyll && rsync -avz --delete --human-readable _site/ lexi:~gerhard/gerhardlazu.com/public && chown -fR gerhard. ~gerhard/gerhardlazu.com/public
