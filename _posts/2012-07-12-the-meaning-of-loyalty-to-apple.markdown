@@ -129,6 +129,45 @@ Out of the 3 Apple computers that I have owned for more than a year, 2
 were complete failures.  **That is a 66% failure rate.** I can't accept
 that Apple, sorry, Apple Care or not.
 
+## UPDATE - 16 July
+
+The Covent Garden store got back to me saying that the extensive tests
+concluded that the logic board needs replacing.  So I've left my MacBook
+Pro for 4 days at the Apple Store just to be told the same thing that I
+knew back in February.  Following this diagnostic, I can't tell the
+difference between the laptop sitting on a shelf and having someone
+actually run those tests.
+
+I asked to speak to any manager at the store other than Caroline (I
+already knew what she has to say). I spoke to Adam which:
+
+1. Is not a lawyer and cannot comment on my statutory rights, in
+   particular the ones outlined in the Sales of Goods Act.
+
+2. He is convinced tha Apple should not cover the bill for the logic
+   board replacement, regardless of the evidence hinting to a
+manufacturing fault.
+
+3. He gave me an inexistent e-mail address to Apple's legal department
+   and misinformed regarding my options for escalating the case further.
+
+As I was getting nowhere with the Covent Garden Apple Store, I called
+Apple's UK number and within 2 minutes I was speaking to Frank D. which
+was vert helpful.  Within mintues, I had the following information:
+
+1. Take your Mac to an Authorised Service Provider. To save you the
+   hassle, Amsys are the most reasonably priced within walking distance
+from Covent Garden. As it happens, their service centre is in Kenley, a
+stone's throw from where I live.
+
+2. Have them run a full assessment of the fault and submit a Consumer
+   Law form to Apple, for review. This is meant to help us understand
+the likely origin of the fault: manufacturing or improper use.
+
+I will have the laptop booked with Amsys for a full diagnostic tomorrow
+and take it from there.
+
+
 [1]: http://support.apple.com/kb/SP91
 [2]: http://support.apple.com/kb/SP11
 [3]: http://support.apple.com/kb/SP582
